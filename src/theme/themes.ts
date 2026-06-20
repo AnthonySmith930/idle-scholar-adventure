@@ -1,10 +1,10 @@
-import { ExtendedTheme } from '@/types/theme'
+import { Theme } from '@/types/theme'
 
 // Default theme
-export const idleSchalorLightTheme: ExtendedTheme = {
+export const idleSchalorLightTheme: Theme = {
   dark: false,
   colors: {
-    primary: '#4271ffff',
+    primary: 'rgb(50, 118, 83)',
     secondary: '#a2f53dff',
     background: '#FFFFFF',
     gradientBackground: ['#ffffff', '#e7e8f8ff', '#c7c8f5ff'],
@@ -21,62 +21,29 @@ export const idleSchalorLightTheme: ExtendedTheme = {
       button: '#ffffffff',
       link: '#1d3fe8ff',
       error: '#DC2626'
+    },
+    rarity: {
+      common: '#94A3B8',
+      uncommon: '#10B981',
+      rare: '#3B82F6',
+      epic: '#A855F7',
+      legendary: '#EAB308'
     }
   },
   spacing: { xs: 4, sm: 8, md: 16, lg: 24, xl: 32, xxl: 48 },
   typography: {
     fontFamily: {
-      regular: 'TASAOrbiter_400Regular',
-      medium: 'TASAOrbiter_500Medium',
-      semibold: 'TASAOrbiter_600SemiBold',
-      bold: 'TASAOrbiter_700Bold',
-      extrabold: 'TASAOrbiter_800ExtraBold'
+      heading: 'PressStart2P_400Regular',
+      regular: 'System'
     },
-    sizes: { xs: 12, sm: 14, md: 16, lg: 18, xl: 24, xxl: 32, xxxl: 48 },
-    weights: {
-      regular: '400',
-      medium: '500',
-      semibold: '600',
-      bold: '700',
-      extrabold: '800'
-    }
+    sizes: { xs: 12, sm: 14, md: 16, lg: 18, xl: 24, xxl: 32, xxxl: 48 }
   },
-  borderRadius: { sm: 4, md: 8, lg: 12, xl: 16, full: 9999 },
-  shadows: {
-    sm: {
-      elevation: 3,
-      shadowColor: '##A9A9A9',
-      shadowOffset: {
-        height: 1,
-        width: 2
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 2
-    },
-    md: {
-      elevation: 5,
-      shadowColor: '##A9A9A9',
-      shadowOffset: {
-        height: 2,
-        width: 4
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 4
-    },
-    lg: {
-      elevation: 6,
-      shadowColor: '##A9A9A9',
-      shadowOffset: {
-        height: 4,
-        width: 6
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 6
-    }
+  borders: {
+    retroWidth: 4
   }
 }
 
-export const idleSchalorDarkTheme: ExtendedTheme = {
+export const idleSchalorDarkTheme: Theme = {
   dark: true,
   colors: {
     primary: '#4271ffff',
@@ -96,58 +63,25 @@ export const idleSchalorDarkTheme: ExtendedTheme = {
       button: '#ffffffff',
       link: '#1d3fe8ff',
       error: '#DC2626'
+    },
+    rarity: {
+      common: '#94A3B8',
+      uncommon: '#10B981',
+      rare: '#3B82F6',
+      epic: '#A855F7',
+      legendary: '#EAB308'
     }
   },
   spacing: { xs: 4, sm: 8, md: 16, lg: 24, xl: 32, xxl: 48 },
   typography: {
     fontFamily: {
-      regular: 'TASAOrbiter_400Regular',
-      medium: 'TASAOrbiter_500Medium',
-      semibold: 'TASAOrbiter_600SemiBold',
-      bold: 'TASAOrbiter_700Bold',
-      extrabold: 'TASAOrbiter_800ExtraBold'
+      heading: 'PressStart2P_400Regular',
+      regular: 'System'
     },
-    sizes: { xs: 12, sm: 14, md: 16, lg: 18, xl: 24, xxl: 32, xxxl: 48 },
-    weights: {
-      regular: '400',
-      medium: '500',
-      semibold: '600',
-      bold: '700',
-      extrabold: '800'
-    }
+    sizes: { xs: 12, sm: 14, md: 16, lg: 18, xl: 24, xxl: 32, xxxl: 48 }
   },
-  borderRadius: { sm: 4, md: 8, lg: 12, xl: 16, full: 9999 },
-  shadows: {
-    sm: {
-      elevation: 3,
-      shadowColor: '##A9A9A9',
-      shadowOffset: {
-        height: 1,
-        width: 2
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 2
-    },
-    md: {
-      elevation: 5,
-      shadowColor: '##A9A9A9',
-      shadowOffset: {
-        height: 2,
-        width: 4
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 4
-    },
-    lg: {
-      elevation: 6,
-      shadowColor: '##A9A9A9',
-      shadowOffset: {
-        height: 4,
-        width: 6
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 6
-    }
+  borders: {
+    retroWidth: 4
   }
 }
 

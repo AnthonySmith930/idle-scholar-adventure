@@ -1,17 +1,37 @@
 import { useEffect } from 'react'
 import { ActivityIndicator, View, StyleSheet } from 'react-native'
-import { Stack } from 'expo-router'
+import { SplashScreen, Stack } from 'expo-router'
 import { drizzle } from 'drizzle-orm/expo-sqlite'
 import { openDatabaseSync } from 'expo-sqlite'
 import { useMigrations } from 'drizzle-orm/expo-sqlite/migrator'
 import migrations from '~/drizzle/migrations'
 import { ThemeProvider } from '@/theme/themeProvider'
 import { useTheme } from '@/stores/themeStore'
+import {
+  useFonts,
+  PressStart2P_400Regular
+} from '@expo-google-fonts/press-start-2p'
+
+SplashScreen.preventAutoHideAsync()
 
 const expoDb = openDatabaseSync('idle_scholar.db')
 const db = drizzle(expoDb)
 
 export default function RootLayout() {
+  const [fontsLoaded, fontError] = useFonts({
+    PressStart2P_400Regular: PressStart2P_400Regular
+  })
+
+  useEffect(() => {
+    if (fontsLoaded || fontError) {
+      SplashScreen.hideAsync()
+    }
+  }, [fontsLoaded, fontError])
+
+  if (!fontsLoaded && !fontError) {
+    return null
+  }
+
   return (
     <ThemeProvider>
       <Application />
@@ -47,6 +67,7 @@ function Application() {
     <Stack
       screenOptions={{
         headerStyle: { backgroundColor: '#121214' },
+        headerTitleStyle: { fontSize: 12, fontFamily: 'PressStart2P_400Regular', color: '#fff' },
         headerTintColor: '#fff',
         contentStyle: { backgroundColor: theme.colors.background }
       }}

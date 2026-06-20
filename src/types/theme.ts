@@ -39,6 +39,14 @@ export interface Theme {
       /** Error state color */
       error: string
     }
+    /** Rarity colors */
+    rarity: {
+      common: string
+      uncommon: string
+      rare: string
+      epic: string
+      legendary: string
+    }
   }
 
   /** Spacing scale */
@@ -57,15 +65,16 @@ export interface Theme {
     xxl: number
   }
 
+  borders: {
+    retroWidth: number
+  }
+
   /** Typography system */
   typography: {
     /** Font Family */
     fontFamily: {
-      regular: 'TASAOrbiter_400Regular'
-      medium: 'TASAOrbiter_500Medium'
-      semibold: 'TASAOrbiter_600SemiBold'
-      bold: 'TASAOrbiter_700Bold'
-      extrabold: 'TASAOrbiter_800ExtraBold'
+      heading: 'PressStart2P_400Regular'
+      regular: 'PressStart2P_400Regular' | 'System'
     }
     /** Font sizes */
     sizes: {
@@ -84,62 +93,14 @@ export interface Theme {
       /** 48px - large headings */
       xxxl: number
     }
-    /** Font weights */
-    weights: {
-      regular: '400'
-      medium: '500'
-      semibold: '600'
-      bold: '700'
-      extrabold: '800'
-    }
-  }
-
-  /** Border radius scale */
-  borderRadius: {
-    /** 4px - subtle rounding */
-    sm: number
-    /** 8px - default rounding */
-    md: number
-    /** 12px - medium rounding */
-    lg: number
-    /** 16px - large rounding */
-    xl: number
-    /** 9999px - fully round */
-    full: number
   }
 }
 
 export type ThemeMode = 'light' | 'dark' | 'auto' | 'neon' | 'earth' | 'midnight' | string
 
-export interface ExtendedTheme extends Theme {
-  shadows?: {
-    sm: object
-    md: object
-    lg: object
-  }
-
-  /** Animation durations (optional) */
-  animation?: {
-    fast: number
-    normal: number
-    slow: number
-  }
-
-  /** Z-index scale (optional) */
-  zIndex?: {
-    dropdown: number
-    modal: number
-    popover: number
-    toast: number
-  }
-}
-
 export type ThemeColor = keyof Theme['colors']
 export type ThemeSpacing = keyof Theme['spacing']
 export type ThemeFontSize = keyof Theme['typography']['sizes']
-export type ThemeFontWeight = keyof Theme['typography']['weights']
-export type ThemeBorderRadius = keyof Theme['borderRadius']
 export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost'
 export type TextVariant = keyof Theme['colors']['text']
 export type SurfaceVariant = 'background' | 'surface' | 'elevated'
-export type ThemeShadow = keyof ExtendedTheme['shadows']
