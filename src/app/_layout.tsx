@@ -4,12 +4,23 @@ import { Stack } from 'expo-router'
 import { drizzle } from 'drizzle-orm/expo-sqlite'
 import { openDatabaseSync } from 'expo-sqlite'
 import { useMigrations } from 'drizzle-orm/expo-sqlite/migrator'
-import migrations from '../drizzle/migrations'
+import migrations from '~/drizzle/migrations'
+import { ThemeProvider } from '@/theme/themeProvider'
+import { useTheme } from '@/stores/themeStore'
 
 const expoDb = openDatabaseSync('idle_scholar.db')
 const db = drizzle(expoDb)
 
 export default function RootLayout() {
+  return (
+    <ThemeProvider>
+      <Application />
+    </ThemeProvider>
+  )
+}
+
+function Application() {
+  const theme = useTheme()
   // Setup database
   if (__DEV__) {
     const { useDrizzleStudio } = require('expo-drizzle-studio-plugin')
@@ -37,7 +48,7 @@ export default function RootLayout() {
       screenOptions={{
         headerStyle: { backgroundColor: '#121214' },
         headerTintColor: '#fff',
-        contentStyle: { backgroundColor: '#fffff' }
+        contentStyle: { backgroundColor: theme.colors.background }
       }}
     >
       {/* Home Screen (Character List) */}
