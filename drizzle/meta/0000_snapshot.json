@@ -1,11 +1,11 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "3e5c8238-b8a8-40b1-bb87-2543bbe0ac83",
+  "id": "1863597d-e438-49ac-8767-79314f0ab024",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
-    "characters": {
-      "name": "characters",
+    "heroes": {
+      "name": "heroes",
       "columns": {
         "id": {
           "name": "id",
@@ -14,8 +14,23 @@
           "notNull": true,
           "autoincrement": true
         },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(unixepoch() * 1000)"
+        },
         "name": {
           "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "class": {
+          "name": "class",
           "type": "text",
           "primaryKey": false,
           "notNull": true,
@@ -25,7 +40,7 @@
           "name": "level",
           "type": "integer",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "autoincrement": false,
           "default": 1
         },
@@ -33,7 +48,7 @@
           "name": "current_exp",
           "type": "integer",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "autoincrement": false,
           "default": 0
         },
@@ -41,7 +56,7 @@
           "name": "gold",
           "type": "integer",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "autoincrement": false,
           "default": 0
         },
@@ -49,7 +64,7 @@
           "name": "total_time_adventuring",
           "type": "integer",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "autoincrement": false,
           "default": 0
         },
@@ -97,13 +112,45 @@
           "notNull": false,
           "autoincrement": false,
           "default": 1
+        },
+        "power": {
+          "name": "power",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 1
+        },
+        "fortitude": {
+          "name": "fortitude",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 1
+        },
+        "vigor": {
+          "name": "vigor",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 1
+        },
+        "luck": {
+          "name": "luck",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 1
         }
       },
       "indexes": {},
       "foreignKeys": {
-        "characters_equipped_weapon_id_items_master_id_fk": {
-          "name": "characters_equipped_weapon_id_items_master_id_fk",
-          "tableFrom": "characters",
+        "heroes_equipped_weapon_id_items_master_id_fk": {
+          "name": "heroes_equipped_weapon_id_items_master_id_fk",
+          "tableFrom": "heroes",
           "tableTo": "items_master",
           "columnsFrom": [
             "equipped_weapon_id"
@@ -114,9 +161,9 @@
           "onDelete": "no action",
           "onUpdate": "no action"
         },
-        "characters_equipped_armor_id_items_master_id_fk": {
-          "name": "characters_equipped_armor_id_items_master_id_fk",
-          "tableFrom": "characters",
+        "heroes_equipped_armor_id_items_master_id_fk": {
+          "name": "heroes_equipped_armor_id_items_master_id_fk",
+          "tableFrom": "heroes",
           "tableTo": "items_master",
           "columnsFrom": [
             "equipped_armor_id"
@@ -127,9 +174,9 @@
           "onDelete": "no action",
           "onUpdate": "no action"
         },
-        "characters_equipped_accessory_id_items_master_id_fk": {
-          "name": "characters_equipped_accessory_id_items_master_id_fk",
-          "tableFrom": "characters",
+        "heroes_equipped_accessory_id_items_master_id_fk": {
+          "name": "heroes_equipped_accessory_id_items_master_id_fk",
+          "tableFrom": "heroes",
           "tableTo": "items_master",
           "columnsFrom": [
             "equipped_accessory_id"
@@ -166,21 +213,21 @@
           "name": "description",
           "type": "text",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "autoincrement": false
         },
         "type": {
           "name": "type",
           "type": "text",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "autoincrement": false
         },
         "rarity": {
           "name": "rarity",
           "type": "text",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "autoincrement": false
         },
         "icon_name": {
@@ -194,7 +241,7 @@
           "name": "base_value",
           "type": "integer",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "autoincrement": false,
           "default": 0
         },
@@ -202,7 +249,7 @@
           "name": "stats",
           "type": "text",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "autoincrement": false
         }
       },

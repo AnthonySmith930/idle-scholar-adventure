@@ -71,8 +71,6 @@ export function IsaItemSlot({
         />
       )}
 
-      <View style={styles.glossyLip} />
-
       {isEmpty ? (
         <Image
           source={getPlaceholderAsset()}

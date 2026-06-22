@@ -4,20 +4,20 @@ import { Theme } from '@/types/theme'
 export const idleSchalorLightTheme: Theme = {
   dark: false,
   colors: {
-    primary: 'rgb(50, 118, 83)',
-    secondary: '#a2f53dff',
+    primary: 'rgb(255, 255, 255)',
+    secondary: '#cfa57aff',
     background: '#FFFFFF',
     gradientBackground: ['#ffffff', '#e7e8f8ff', '#c7c8f5ff'],
-    surface: '#FFFFFF',
+    surface: '#9a5b4fff',
     input: '#ffffff',
-    border: '#97a4c6ff',
+    border: '#161b21ff',
     error: '#DC2626',
     success: '#10B981',
     warning: '#eacf00ff',
     info: '#3B82F6',
     text: {
-      primary: 'rgb(249, 5, 17)',
-      secondary: '#525297ff',
+      primary: 'rgb(172, 186, 209)',
+      secondary: 'rgb(193, 204, 219)',
       button: '#ffffffff',
       link: '#1d3fe8ff',
       error: '#DC2626'

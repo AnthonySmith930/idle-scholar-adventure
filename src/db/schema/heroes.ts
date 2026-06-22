@@ -1,13 +1,17 @@
 import { int, sqliteTable, text } from 'drizzle-orm/sqlite-core'
+import { sql } from 'drizzle-orm'
 import { itemTable } from './items'
 
-export const characterClasses = ['warrior', 'mage', 'ranger', 'rogue'] as const;
-export type CharacterClass = typeof characterClasses[number];
+export const heroClasses = ['warrior', 'mage', 'ranger', 'rogue'] as const
+export type HeroClass = (typeof heroClasses)[number]
 
-export const characterTable = sqliteTable('characters', {
+export const heroesTable = sqliteTable('heroes', {
   id: int().primaryKey({ autoIncrement: true }),
+  createdAt: int({ mode: 'number' })
+    .notNull()
+    .default(sql`(unixepoch() * 1000)`),
   name: text().notNull(),
-  class: text('class', { enum: characterClasses }).notNull(),
+  class: text('class', { enum: heroClasses }).notNull(),
   level: int().default(1).notNull(),
   current_exp: int().default(0).notNull(),
   gold: int().default(0).notNull(),
@@ -24,6 +28,6 @@ export const characterTable = sqliteTable('characters', {
   // base stats
   power: int().default(1).notNull(),
   fortitude: int().default(1).notNull(),
-  vigor: int().default(1).notNull(), 
-  luck: int().default(1).notNull(),
+  vigor: int().default(1).notNull(),
+  luck: int().default(1).notNull()
 })

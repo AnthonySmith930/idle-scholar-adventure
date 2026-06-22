@@ -5,15 +5,8 @@
     {
       "idx": 0,
       "version": "6",
-      "when": 1781917871579,
-      "tag": "0000_supreme_makkari",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "6",
-      "when": 1781932022049,
-      "tag": "0001_calm_madelyne_pryor",
+      "when": 1782103953761,
+      "tag": "0000_giant_energizer",
       "breakpoints": true
     }
   ]

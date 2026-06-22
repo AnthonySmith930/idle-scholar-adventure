@@ -5,13 +5,11 @@ import { styles } from '@/styles/components/IsaText.style'
 interface IsaTextProps extends TextProps {
   variant?: 'heading' | 'body'
   size?: keyof ReturnType<typeof useTheme>['typography']['sizes']
-  strokeColor?: string
 }
 
 export function IsaText({
   variant = 'body',
   size = 'md',
-  strokeColor = '#000000',
   style,
   children,
   ...props

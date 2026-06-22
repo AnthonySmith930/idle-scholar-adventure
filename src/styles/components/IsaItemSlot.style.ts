@@ -44,8 +44,8 @@ export const styles = StyleSheet.create({
     opacity: 0.35
   },
   itemSprite: {
-    width: 40,
-    height: 40,
+    width: 32,
+    height: 32,
     zIndex: 2
   },
   emptyCenter: {
@@ -56,8 +56,8 @@ export const styles = StyleSheet.create({
     opacity: 0.3
   },
   placeholderSprite: {
-    width: 36,
-    height: 36,
+    width: 24,
+    height: 24,
     opacity: 0.2, // Gives it that nice, faint "not equipped yet" transparency look
     zIndex: 1
   }

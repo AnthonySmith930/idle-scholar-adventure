@@ -6,7 +6,7 @@ export const itemTable = sqliteTable('items_master', {
   description: text().notNull(),
   type: text().$type<'weapon' | 'armor' | 'consumable' | 'accessory'>().notNull(),
   rarity: text().$type<'common' | 'uncommon' | 'rare' | 'epic' | 'legendary'>().notNull(),
-  icon_name: text().notNull(), // asset file name
+  icon_name: text().notNull(),
   base_value: int().default(0).notNull(),
   stats: text({ mode: 'json'}).notNull()
 

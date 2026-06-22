@@ -66,13 +66,10 @@ function Application() {
   return (
     <Stack
       screenOptions={{
-        headerStyle: { backgroundColor: '#121214' },
-        headerTitleStyle: { fontSize: 12, fontFamily: 'PressStart2P_400Regular', color: '#fff' },
-        headerTintColor: '#fff',
-        contentStyle: { backgroundColor: theme.colors.background }
+        headerShown: false
       }}
     >
-      {/* Home Screen (Character List) */}
+      {/* Home Screen (hero List) */}
       <Stack.Screen
         name="index"
         options={{ title: 'Idle Scholar Adventures' }}
@@ -80,12 +77,12 @@ function Application() {
 
       {/* Creation Modal */}
       <Stack.Screen
-        name="create-character"
+        name="create-hero"
         options={{ presentation: 'modal', title: 'New Hero' }}
       />
 
-      {/* Character Profile (We hide header because we'll build a custom one) */}
-      <Stack.Screen name="character/[id]" options={{ headerShown: false }} />
+      {/* hero Profile (We hide header because we'll build a custom one) */}
+      <Stack.Screen name="hero/[id]" options={{ headerShown: false }} />
 
       {/* The Lockout Active Quest Screen */}
       <Stack.Screen
