@@ -8,6 +8,7 @@ import m0003 from './0003_moaning_shadowcat.sql';
 import m0004 from './0004_calm_nehzno.sql';
 import m0005 from './0005_thick_risque.sql';
 import m0006 from './0006_magenta_morg.sql';
+import m0007 from './0007_worthless_masked_marvel.sql';
 
   export default {
     journal,
@@ -18,7 +19,8 @@ m0002,
 m0003,
 m0004,
 m0005,
-m0006
+m0006,
+m0007
     }
   }
   

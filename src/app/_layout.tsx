@@ -12,6 +12,7 @@ import {
 } from '@expo-google-fonts/press-start-2p'
 import { useAccountStore } from '@/stores/accountStore'
 import { useHeroStore } from '@/stores/heroStore'
+import { seedItemsTable } from '@/db/seedItems'
 
 // Force the native splash screen to stay frozen over the UI layer on boot
 SplashScreen.preventAutoHideAsync()
@@ -43,6 +44,7 @@ function Application({ fontsReady }: { fontsReady: boolean }) {
     db,
     migrations
   )
+  const [itemsSeeded, setItemsSeeded] = useState(false)
   const [storesHydrated, setStoresHydrated] = useState(false)
 
   const isAccountHydrated = useAccountStore((state) => state.isHydrated)
@@ -60,6 +62,10 @@ function Application({ fontsReady }: { fontsReady: boolean }) {
     async function performStoreHydration() {
       if (!migrationsSuccess) return
       try {
+        // seed db with item data
+        await seedItemsTable(db)
+        setItemsSeeded(true)
+        
         await Promise.all([hydrateAccount(), hydrateHeroes()])
         setStoresHydrated(true)
       } catch (e) {
@@ -75,6 +81,7 @@ function Application({ fontsReady }: { fontsReady: boolean }) {
   const appIsReady =
     fontsReady &&
     migrationsSuccess &&
+    itemsSeeded &&
     storesHydrated &&
     isAccountHydrated &&
     isHeroesHydrated

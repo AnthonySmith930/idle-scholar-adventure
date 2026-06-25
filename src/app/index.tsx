@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, View, ViewStyle } from 'react-native'
+import { ScrollView, View, ViewStyle } from 'react-native'
 import { useRouter } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { GlobalDashboard } from '@/components/GlobalDashboard'
@@ -9,6 +9,7 @@ import { MiniGearRow } from '@/components/MiniItemsRow'
 import { IsaButton } from '@/components/IsaButton'
 import { useHeroes, useTotalQuestTime } from '@/stores/heroStore'
 import { useAccountStore } from '@/stores/accountStore'
+import { styles } from '@/styles/screens/homeScreen.style'
 
 export default function HomeScreen() {
   const router = useRouter()
@@ -75,21 +76,3 @@ export default function HomeScreen() {
     </SafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  backgroundImage: {
-    flex: 1,
-    backgroundColor: '#090D16' 
-  },
-  scrollView: {
-    flex: 1
-  },
-  scrollContent: {
-    paddingHorizontal: 16,
-    paddingBottom: 40 
-  },
-  addHeroButton: {
-    marginTop: 8,
-    width: '100%'
-  }
-})
