@@ -1,0 +1,1 @@
+ALTER TABLE `account_metadata` ADD `total_gold_earned` integer DEFAULT 0 NOT NULL;

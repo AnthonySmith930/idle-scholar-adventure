@@ -1,24 +1,14 @@
 import { View } from 'react-native'
-import { IsaItemSlot, SlotType, ItemRarity } from './IsaItemSlot'
+import { IsaItemSlot, SlotType } from './IsaItemSlot'
 import { styles } from '@/styles/components/miniItemsRow.style'
-
-// Defines the shape of equipped items passed down from the Hero schema
-interface EquippedItem {
-  asset?: any
-  rarity?: ItemRarity
-}
+import { HeroEquipment } from '@/types/game'
 
 interface MiniGearRowProps {
-  equipment: {
-    weapon?: EquippedItem
-    armor?: EquippedItem
-    accessory?: EquippedItem
-    consumable?: EquippedItem
-  }
+  equipment: HeroEquipment
 }
 
 export function MiniGearRow({ equipment }: MiniGearRowProps) {
-  const slots: { type: SlotType; item?: EquippedItem }[] = [
+  const slots: { type: SlotType; item?: any }[] = [
     { type: 'weapon', item: equipment.weapon },
     { type: 'armor', item: equipment.armor },
     { type: 'accessory', item: equipment.accessory },
@@ -31,7 +21,7 @@ export function MiniGearRow({ equipment }: MiniGearRowProps) {
         <IsaItemSlot
           key={slot.type}
           slotType={slot.type}
-          itemAsset={slot.item?.asset}
+          itemAsset={slot.item?.sprite}
           rarity={slot.item?.rarity || 'common'}
           style={styles.miniSlotOverride}
         />

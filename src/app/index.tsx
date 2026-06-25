@@ -1,56 +1,40 @@
-import { useState } from 'react'
 import { ScrollView, StyleSheet, View, ViewStyle } from 'react-native'
-import { useTheme } from '@/stores/themeStore'
+import { useRouter } from 'expo-router'
+import { SafeAreaView } from 'react-native-safe-area-context'
 import { GlobalDashboard } from '@/components/GlobalDashboard'
 import { HeroCard } from '@/components/HeroCard'
 import { HeroAvatar } from '@/components/HeroAvatar'
 import { HeroInfo } from '@/components/HeroInfo'
 import { MiniGearRow } from '@/components/MiniItemsRow'
 import { IsaButton } from '@/components/IsaButton'
-import { HeroEntry, mockHeroes } from '@/db/mockData'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { useHeroes, useTotalQuestTime } from '@/stores/heroStore'
+import { useAccountStore } from '@/stores/accountStore'
 
-export default function HomeScreen({ navigation }: any) {
-  const theme = useTheme()
+export default function HomeScreen() {
+  const router = useRouter()
 
-  // 1. Mock Data: Arranged with mixed timestamps to confirm our sorting logic works flawlessly
-  const [heroes, setHeroes] = useState<HeroEntry[]>(mockHeroes)
+  const heroes = useHeroes()
+  const sortedHeroes = [...heroes].sort((a, b) => b.createdAt - a.createdAt)
+  const totalTimeSeconds = useTotalQuestTime()
+  const globalGold = useAccountStore((state) => state.totalGoldEarned)
 
-  // 2. Compute Global Account Aggregations
-  const totalGold = heroes.reduce((sum, h) => sum + h.gold, 0)
-  const totalTimeSeconds = 43200 // Mock: 12 hours total account questing time
   const maxScholarsCount = 10
 
-  // 3. Navigation Interceptors
   const handleHeroSelect = (id: string) => {
-    // Passes solely the unique ID to keep memory overhead light
-    navigation.navigate('HeroDetails', { heroId: id })
+    router.push(`hero/${id}`)
   }
 
-  const handleCreateHero = () => {
+  const handleCreateHeroPress = () => {
     if (heroes.length >= maxScholarsCount) return
-
-    // Quick test addition helper to verify the 10-hero maximum cutoff behavior
-    const newHero: HeroEntry = {
-      id: `char-${Date.now()}`,
-      name: `Scholar ${heroes.length + 1}`,
-      gold: 0,
-      createdAt: Date.now(),
-      sprite: require('~/assets/images/warrior.svg'),
-      equipment: {}
-    }
-    setHeroes([newHero, ...heroes])
+    router.push('/create-hero')
   }
 
   const handleSettingsPress = () => {
-    navigation.navigate('Settings')
+    router.push('Settings')
   }
 
-  // 4. Sort: Newest created heroes always position at the top of the board
-  const sortedHeroes = [...heroes].sort((a, b) => b.createdAt - a.createdAt)
-
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={styles.backgroundImage}>
       <ScrollView
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}
@@ -58,21 +42,20 @@ export default function HomeScreen({ navigation }: any) {
       >
         {/* Macro Account Status Header Board */}
         <GlobalDashboard
-          totalGold={totalGold}
+          totalGold={globalGold}
           totalTimeSeconds={totalTimeSeconds}
           activeScholarsCount={heroes.length}
           maxScholarsCount={maxScholarsCount}
           onSettingsPress={handleSettingsPress}
         />
 
-        {/* Dynamic Hero List Array */}
-        {sortedHeroes.map((hero) => (
+        {heroes.map((hero) => (
           <HeroCard
             key={hero.id}
             heroId={hero.id}
             onPress={handleHeroSelect}
           >
-            <HeroAvatar spriteSource={hero.sprite} />
+            <HeroAvatar spriteKey={hero.sprite} />
             <View style={{ flex: 1 }}>
               <HeroInfo name={hero.name} gold={hero.gold} />
               <MiniGearRow equipment={hero.equipment} />
@@ -81,10 +64,10 @@ export default function HomeScreen({ navigation }: any) {
         ))}
 
         {/* Action Button: Renders inline right below the last card, vanishes when full */}
-        {heroes.length < maxScholarsCount && (
+        {sortedHeroes.length < maxScholarsCount && (
           <IsaButton
             title="+ RECRUIT NEW SCHOLAR"
-            onPress={handleCreateHero}
+            onPress={handleCreateHeroPress}
             style={styles.addHeroButton as ViewStyle}
           />
         )}
@@ -96,14 +79,14 @@ export default function HomeScreen({ navigation }: any) {
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
-    backgroundColor: '#090D16' // Fallback deep void color while image downloads
+    backgroundColor: '#090D16' 
   },
   scrollView: {
     flex: 1
   },
   scrollContent: {
     paddingHorizontal: 16,
-    paddingBottom: 40 // Ensures extra layout padding at the baseline of the scroll track
+    paddingBottom: 40 
   },
   addHeroButton: {
     marginTop: 8,

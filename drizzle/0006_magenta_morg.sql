@@ -1,0 +1,1 @@
+ALTER TABLE `items_master` RENAME COLUMN "icon_name" TO "sprite";

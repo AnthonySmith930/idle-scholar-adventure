@@ -1,0 +1,1 @@
+ALTER TABLE `heroes` ADD `sprite` text NOT NULL;

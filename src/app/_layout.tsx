@@ -1,8 +1,7 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { ActivityIndicator, View, StyleSheet } from 'react-native'
 import { SplashScreen, Stack } from 'expo-router'
-import { drizzle } from 'drizzle-orm/expo-sqlite'
-import { openDatabaseSync } from 'expo-sqlite'
+import { db, expoDb } from '@/db/client'
 import { useMigrations } from 'drizzle-orm/expo-sqlite/migrator'
 import migrations from '~/drizzle/migrations'
 import { ThemeProvider } from '@/theme/themeProvider'
@@ -11,22 +10,17 @@ import {
   useFonts,
   PressStart2P_400Regular
 } from '@expo-google-fonts/press-start-2p'
+import { useAccountStore } from '@/stores/accountStore'
+import { useHeroStore } from '@/stores/heroStore'
 
+// Force the native splash screen to stay frozen over the UI layer on boot
 SplashScreen.preventAutoHideAsync()
 
-const expoDb = openDatabaseSync('idle_scholar.db')
-const db = drizzle(expoDb)
-
 export default function RootLayout() {
+  // Separating system wide laods from core application readiness
   const [fontsLoaded, fontError] = useFonts({
     PressStart2P_400Regular: PressStart2P_400Regular
   })
-
-  useEffect(() => {
-    if (fontsLoaded || fontError) {
-      SplashScreen.hideAsync()
-    }
-  }, [fontsLoaded, fontError])
 
   if (!fontsLoaded && !fontError) {
     return null
@@ -34,57 +28,90 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider>
-      <Application />
+      <Application fontsReady={fontsLoaded || !!fontError} />
     </ThemeProvider>
   )
 }
 
-function Application() {
-  const theme = useTheme()
-  // Setup database
+function Application({ fontsReady }: { fontsReady: boolean }) {
   if (__DEV__) {
     const { useDrizzleStudio } = require('expo-drizzle-studio-plugin')
     useDrizzleStudio(expoDb)
   }
 
-  const { success, error } = useMigrations(db, migrations)
+  const { success: migrationsSuccess, error: migrationsError } = useMigrations(
+    db,
+    migrations
+  )
+  const [storesHydrated, setStoresHydrated] = useState(false)
+
+  const isAccountHydrated = useAccountStore((state) => state.isHydrated)
+  const hydrateAccount = useAccountStore((state) => state.hydrateAccount)
+  const isHeroesHydrated = useHeroStore((state) => state.isHydrated)
+  const hydrateHeroes = useHeroStore((state) => state.hydrateHeroes)
 
   useEffect(() => {
-    if (error) {
-      console.error('Database migration failed on startup:', error)
+    if (migrationsError) {
+      console.error('Database migration failed on startup:', migrationsError)
     }
-  }, [error])
+  }, [migrationsError])
 
-  if (!success) {
+  useEffect(() => {
+    async function performStoreHydration() {
+      if (!migrationsSuccess) return
+      try {
+        await Promise.all([hydrateAccount(), hydrateHeroes()])
+        setStoresHydrated(true)
+      } catch (e) {
+        console.error(
+          'Failed to cleanly hydrate local store arrays from SQLite schema:',
+          e
+        )
+      }
+    }
+    performStoreHydration()
+  }, [migrationsSuccess])
+
+  const appIsReady =
+    fontsReady &&
+    migrationsSuccess &&
+    storesHydrated &&
+    isAccountHydrated &&
+    isHeroesHydrated
+
+  useEffect(() => {
+    if (appIsReady) {
+      SplashScreen.hideAsync()
+    }
+  }, [appIsReady])
+
+  // Fallback view for edge case failures.
+  if (!appIsReady) {
     return (
-      <View style={styles.loadingContainer}>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: '#121214'
+        }}
+      >
         <ActivityIndicator size="large" color="#A855F7" />
       </View>
     )
   }
 
   return (
-    <Stack
-      screenOptions={{
-        headerShown: false
-      }}
-    >
-      {/* Home Screen (hero List) */}
+    <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen
         name="index"
         options={{ title: 'Idle Scholar Adventures' }}
       />
-
-      {/* Creation Modal */}
       <Stack.Screen
         name="create-hero"
         options={{ presentation: 'modal', title: 'New Hero' }}
       />
-
-      {/* hero Profile (We hide header because we'll build a custom one) */}
       <Stack.Screen name="hero/[id]" options={{ headerShown: false }} />
-
-      {/* The Lockout Active Quest Screen */}
       <Stack.Screen
         name="active-quest"
         options={{ headerShown: false, gestureEnabled: false }}
@@ -92,12 +119,3 @@ function Application() {
     </Stack>
   )
 }
-
-const styles = StyleSheet.create({
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#121214'
-  }
-})

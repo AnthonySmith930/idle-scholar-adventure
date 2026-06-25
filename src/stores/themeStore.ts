@@ -3,13 +3,13 @@ import { persist, createJSONStorage } from 'zustand/middleware'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Appearance } from 'react-native'
 import * as SystemUI from 'expo-system-ui'
-import { ExtendedTheme, Theme, ThemeMode } from '@/types/theme'
+import { Theme, ThemeMode } from '@/types/theme'
 import { themes } from '@/theme/themes'
 
 interface ThemeState {
   themeMode: ThemeMode
   systemColorScheme: 'light' | 'dark' | 'unspecified' | null
-  theme: ExtendedTheme
+  theme: Theme
 
   // Actions
   setThemeMode: (mode: ThemeMode) => void
@@ -85,7 +85,6 @@ function getThemeForMode(
   mode: ThemeMode,
   systemScheme: 'light' | 'dark' | 'unspecified' | null
 ): Theme {
-  console.log(systemScheme)
   if (mode === 'auto') {
     return systemScheme === 'dark' ? themes.dark : themes.light
   }

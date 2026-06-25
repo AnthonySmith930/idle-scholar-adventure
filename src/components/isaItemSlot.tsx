@@ -5,7 +5,6 @@ import { styles } from '@/styles/components/IsaItemSlot.style'
 
 export type ItemRarity = 'common' | 'uncommon' | 'rare' | 'epic' | 'legendary'
 export type SlotType =
-  | 'generic'
   | 'weapon'
   | 'armor'
   | 'consumable'
@@ -23,7 +22,7 @@ interface IsaItemSlotProps {
 export function IsaItemSlot({
   itemAsset,
   rarity = 'common',
-  slotType = 'generic',
+  slotType,
   onPress,
   isActive = false,
   style
@@ -42,7 +41,6 @@ export function IsaItemSlot({
         return require('../../assets/images/placeholders/accessory-silhouette.svg')
       case 'consumable':
         return require('../../assets/images/placeholders/consumable-silhouette.svg')
-      case 'generic':
       default:
         return require('../../assets/images/placeholders/consumable-silhouette.svg')
     }

@@ -3,16 +3,28 @@ import { Image, ImageSource } from 'expo-image'
 import { useTheme } from '@/stores/themeStore'
 import { styles } from '@/styles/components/heroAvatar.style'
 
+const HERO_SPRITE_REGISTRY: Record<string, any> = {
+  warrior_male: require('~/assets/images/heroes/warrior.svg'),
+  warrior_female: require('~/assets/images/heroes/warrior.svg'),
+  mage_male: require('~/assets/images/heroes/warrior.svg'),
+  mage_female: require('~/assets/images/heroes/warrior.svg'),
+  rogue_male: require('~/assets/images/heroes/warrior.svg'),
+  rogue_female: require('~/assets/images/heroes/warrior.svg'),
+  ranger_male: require('~/assets/images/heroes/warrior.svg'),
+  ranger_female: require('~/assets/images/heroes/warrior.svg')
+}
+
+const DEFAULT_SPRITE = require('~/assets/images/heroes/warrior.svg')
+
 interface HeroAvatarProps {
-  spriteSource: ImageSource | string | number
+  spriteKey: string
   size?: number
 }
 
-export function HeroAvatar({
-  spriteSource,
-  size = 56
-}: HeroAvatarProps) {
+export function HeroAvatar({ spriteKey, size = 56 }: HeroAvatarProps) {
   const theme = useTheme()
+
+  const resolvedSource = HERO_SPRITE_REGISTRY[spriteKey] || DEFAULT_SPRITE
 
   return (
     <View
@@ -27,7 +39,7 @@ export function HeroAvatar({
     >
       <View style={styles.spriteCanvas}>
         <Image
-          source={spriteSource}
+          source={resolvedSource}
           style={styles.spriteImage}
           contentFit="contain"
           transition={150}
