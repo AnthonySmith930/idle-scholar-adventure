@@ -13,6 +13,7 @@ import {
 import { useAccountStore } from '@/stores/accountStore'
 import { useHeroStore } from '@/stores/heroStore'
 import { seedItemsTable } from '@/db/seedItems'
+import { useItemStore } from '@/stores/itemStore'
 
 // Force the native splash screen to stay frozen over the UI layer on boot
 SplashScreen.preventAutoHideAsync()
@@ -44,13 +45,17 @@ function Application({ fontsReady }: { fontsReady: boolean }) {
     db,
     migrations
   )
-  const [itemsSeeded, setItemsSeeded] = useState(false)
-  const [storesHydrated, setStoresHydrated] = useState(false)
 
+  // local state tracking
+  const [itemsSeeded, setItemsSeeded] = useState(false)
+
+  // selectors
   const isAccountHydrated = useAccountStore((state) => state.isHydrated)
   const hydrateAccount = useAccountStore((state) => state.hydrateAccount)
   const isHeroesHydrated = useHeroStore((state) => state.isHydrated)
   const hydrateHeroes = useHeroStore((state) => state.hydrateHeroes)
+  const isItemsStoreHydrated = useItemStore((state) => state.isHydrated)
+  const hydrateItems = useItemStore((state) => state.hydrateItems)
 
   useEffect(() => {
     if (migrationsError) {
@@ -59,15 +64,20 @@ function Application({ fontsReady }: { fontsReady: boolean }) {
   }, [migrationsError])
 
   useEffect(() => {
-    async function performStoreHydration() {
+    async function performInitialization() {
       if (!migrationsSuccess) return
       try {
         // seed db with item data
         await seedItemsTable(db)
         setItemsSeeded(true)
-        
-        await Promise.all([hydrateAccount(), hydrateHeroes()])
-        setStoresHydrated(true)
+
+        await Promise.all([hydrateAccount(), hydrateHeroes(), hydrateItems()])
+
+        // TODO: remove for production
+        console.log('──────────────────────────────────────────────────')
+        console.log('🧠 [ItemStore] Memory Hydration Validation Check')
+        const allTemplates = useItemStore.getState().templates
+        console.log(`📊 Total master templates parsed: ${allTemplates.length}`)
       } catch (e) {
         console.error(
           'Failed to cleanly hydrate local store arrays from SQLite schema:',
@@ -75,16 +85,16 @@ function Application({ fontsReady }: { fontsReady: boolean }) {
         )
       }
     }
-    performStoreHydration()
+    performInitialization()
   }, [migrationsSuccess])
 
   const appIsReady =
     fontsReady &&
     migrationsSuccess &&
     itemsSeeded &&
-    storesHydrated &&
     isAccountHydrated &&
-    isHeroesHydrated
+    isHeroesHydrated &&
+    isItemsStoreHydrated
 
   useEffect(() => {
     if (appIsReady) {
