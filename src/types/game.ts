@@ -3,13 +3,6 @@ import { itemTable, heroesTable } from '@/db/schema'
 // ======== Hero ========
 export type Hero = typeof heroesTable.$inferSelect
 export type HeroClass = 'mage' | 'warrior' | 'ranger' | 'rogue'
-
-export interface HeroEquipment {
-  weapon: EquippedItemInstance
-  armor: EquippedItemInstance
-  accessory: EquippedItemInstance | null
-  consumable: EquippedItemInstance | null
-}
 // ======================
 
 // ======== Item ========
@@ -25,37 +18,44 @@ export interface EquippedItemInstance {
   name: string
 }
 
+export interface HeroEquipment {
+  weapon: EquippedItemInstance
+  armor: EquippedItemInstance
+  accessory: EquippedItemInstance | null
+  consumable: EquippedItemInstance | null
+}
+
 interface StartingKit {
-  weaponId: string
+  weaponMasterId: string
   weaponName: string
-  armorId: string
+  armorMasterId: string
   armorName: string
 }
 
 export const CLASS_STARTING_KITS: Record<HeroClass, StartingKit> = {
-  mage: {
-    weaponId: 'weapon_basic_staff',
-    weaponName: 'Basic Staff',
-    armorId: 'armor_basic_robes',
-    armorName: 'Basic Robes'
-  },
   warrior: {
-    weaponId: 'weapon_basic_sword',
-    weaponName: 'Basic Sword',
-    armorId: 'armor_basic_mail',
-    armorName: 'Basic Chainmail'
+    weaponMasterId: 'starter_sword_001', // Make sure these match your seed keys perfectly
+    weaponName: 'Dull Sword',
+    armorMasterId: 'starter_armor_warrior_001',
+    armorName: 'Recruit Mail'
+  },
+  mage: {
+    weaponMasterId: 'starter_armor_mage_001',
+    weaponName: 'Novice Staff',
+    armorMasterId: 'armor_common_robes_001',
+    armorName: 'Initiate Robes'
   },
   ranger: {
-    weaponId: 'weapon_basic_bow',
-    weaponName: 'Basic Bow',
-    armorId: 'armor_basic_leather',
-    armorName: 'Basic Leather Armor'
+    weaponMasterId: 'starter_bow_001',
+    weaponName: 'Old Bow',
+    armorMasterId: 'starter_armor_ranger_001',
+    armorName: 'Scout Leather'
   },
   rogue: {
-    weaponId: 'weapon_basic_daggers',
-    weaponName: 'Basic Daggers',
-    armorId: 'armor_basic_tunic',
-    armorName: 'Basic Cloth Tunic'
+    weaponMasterId: 'starter_armor_rogue_001',
+    weaponName: 'Rusty Daggers',
+    armorMasterId: 'armor_common_tunic_001',
+    armorName: 'Tattered Gambeson'
   }
 }
 
@@ -91,6 +91,19 @@ export const CLASS_STARTING_STATS: Record<HeroClass, StartingStats> = {
     vigor: 2,
     luck: 2
   }
+}
+
+export interface EquippedItemInstance {
+  instanceId: string
+  masterId: string
+  name: string
+}
+
+export interface HeroEquipment {
+  weapon: EquippedItemInstance
+  armor: EquippedItemInstance
+  accessory: EquippedItemInstance | null
+  consumable: EquippedItemInstance | null
 }
 
 export interface CoreAttributes {

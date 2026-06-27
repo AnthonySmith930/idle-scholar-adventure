@@ -21,8 +21,7 @@ export function MiniGearRow({ equipment }: MiniGearRowProps) {
         <IsaItemSlot
           key={slot.type}
           slotType={slot.type}
-          itemAsset={slot.item?.sprite}
-          rarity={slot.item?.rarity || 'common'}
+          masterId={slot.item?.id}
           style={styles.miniSlotOverride}
         />
       ))}

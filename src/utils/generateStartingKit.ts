@@ -6,12 +6,12 @@ export const generateStartingKit = (heroClass: HeroClass): HeroEquipment => {
   return {
     weapon: {
       instanceId: Crypto.randomUUID(),
-      masterId: kit.weaponId,
+      masterId: kit.weaponMasterId,
       name: kit.weaponName
     },
     armor: {
       instanceId: Crypto.randomUUID(),
-      masterId: kit.armorId,
+      masterId: kit.armorMasterId,
       name: kit.armorName
     },
     accessory: null,

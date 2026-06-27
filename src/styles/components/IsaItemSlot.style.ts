@@ -60,5 +60,8 @@ export const styles = StyleSheet.create({
     height: 24,
     opacity: 0.2, // Gives it that nice, faint "not equipped yet" transparency look
     zIndex: 1
+  },
+  baseFrameStyle: {
+    backgroundColor: '#1E293B',
   }
 })

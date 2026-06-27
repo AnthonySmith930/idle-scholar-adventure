@@ -2,7 +2,7 @@ import { Item } from '@/types/game'
 
 export const WEAPON_MASTER_DATA: Item[] = [
   {
-    id: 'starter_sword_001',
+    id: 'starter_sword',
     name: 'Dull Sword',
     description:
       'A blunt iron blade given to novice squires. Reliable, but lacks an edge.',
@@ -17,7 +17,181 @@ export const WEAPON_MASTER_DATA: Item[] = [
     isDroppable: false
   },
   {
-    id: 'starter_bow_001',
+    id: 'iron_sword',
+    name: 'Iron Sword',
+    description:
+      'Forged from a simple copper-tin alloy. Notably sharper than a training blade.',
+    type: 'weapon',
+    rarity: 'common',
+    sprite: 'iron_sword',
+    baseValue: 45,
+    itemClass: 'warrior',
+    stats: {
+      base_damage: 6
+    },
+    isDroppable: true
+  },
+  {
+    id: 'steel_sword',
+    name: 'Steel Sword',
+    description:
+      'A heavy, well-tempered steel blade that demands incredible resolve to wield. Its weight bolsters your physical presence.',
+    type: 'weapon',
+    rarity: 'uncommon',
+    sprite: 'steel_sword',
+    baseValue: 120,
+    itemClass: 'warrior',
+    stats: {
+      base_damage: 8
+    },
+    isDroppable: true
+  },
+  {
+    id: 'mithril_sword',
+    name: 'Mithril Sword',
+    description:
+      'A heavy, well-tempered steel blade that demands incredible resolve to wield. Its weight bolsters your physical presence.',
+    type: 'weapon',
+    rarity: 'uncommon',
+    sprite: 'mithril_sword',
+    baseValue: 120,
+    itemClass: 'warrior',
+    stats: {
+      base_damage: 10,
+      power: 1
+    },
+    isDroppable: true
+  },
+  {
+    id: 'adamant_sword',
+    name: 'Adamant Sword',
+    description:
+      'A heavy, well-tempered steel blade that demands incredible resolve to wield. Its weight bolsters your physical presence.',
+    type: 'weapon',
+    rarity: 'uncommon',
+    sprite: 'adamant_sword',
+    baseValue: 120,
+    itemClass: 'warrior',
+    stats: {
+      base_damage: 12,
+      power: 2
+    },
+    isDroppable: true
+  },
+  {
+    id: 'dragonsteel_sword',
+    name: 'Dragonsteel Sword',
+    description:
+      'A heavy, well-tempered steel blade that demands incredible resolve to wield. Its weight bolsters your physical presence.',
+    type: 'weapon',
+    rarity: 'uncommon',
+    sprite: 'dragonsteel_sword',
+    baseValue: 120,
+    itemClass: 'warrior',
+    stats: {
+      base_damage: 14,
+      power: 2,
+      vigor: 1
+    },
+    isDroppable: true
+  },
+  {
+    id: 'starter_staff',
+    name: 'Rough Staff',
+    description:
+      'A polished wooden rod that helps channel focal energy during long studies.',
+    type: 'weapon',
+    rarity: 'common',
+    sprite: 'starter_staff',
+    baseValue: 0,
+    itemClass: 'mage',
+    stats: {
+      base_damage: 5
+    },
+    isDroppable: false
+  },
+  {
+    id: 'oak_staff',
+    name: 'Oak Staff',
+    description:
+      'A polished wooden rod that helps channel focal energy during long studies.',
+    type: 'weapon',
+    rarity: 'common',
+    sprite: 'oak_staff',
+    baseValue: 0,
+    itemClass: 'mage',
+    stats: {
+      base_damage: 7
+    },
+    isDroppable: false
+  },
+  {
+    id: 'yew_staff',
+    name: 'Yew Staff',
+    description:
+      'A polished wooden rod that helps channel focal energy during long studies.',
+    type: 'weapon',
+    rarity: 'common',
+    sprite: 'yew_staff',
+    baseValue: 0,
+    itemClass: 'mage',
+    stats: {
+      base_damage: 9
+    },
+    isDroppable: false
+  },
+  {
+    id: 'elderwood_staff',
+    name: 'Elderwood Staff',
+    description:
+      'A polished wooden rod that helps channel focal energy during long studies.',
+    type: 'weapon',
+    rarity: 'common',
+    sprite: 'elderwood_staff',
+    baseValue: 0,
+    itemClass: 'mage',
+    stats: {
+      base_damage: 12,
+      vigor: 1
+    },
+    isDroppable: false
+  },
+  {
+    id: 'crystal_staff',
+    name: 'Crystal Staff',
+    description:
+      'A polished wooden rod that helps channel focal energy during long studies.',
+    type: 'weapon',
+    rarity: 'common',
+    sprite: 'crystal_staff',
+    baseValue: 0,
+    itemClass: 'mage',
+    stats: {
+      base_damage: 15,
+      vigor: 1,
+      luck: 1
+    },
+    isDroppable: false
+  },
+  {
+    id: 'archmage_staff',
+    name: 'Archamge\'s Staff',
+    description:
+      'A polished wooden rod that helps channel focal energy during long studies.',
+    type: 'weapon',
+    rarity: 'common',
+    sprite: 'archmage_staff',
+    baseValue: 0,
+    itemClass: 'mage',
+    stats: {
+      base_damage: 18,
+      vigor: 2,
+      luck: 2
+    },
+    isDroppable: false
+  },
+  {
+    id: 'starter_bow',
     name: 'Old Bow',
     description:
       'A flexible wooden bow strung with simple twine. Good for keeping distance.',
@@ -32,22 +206,86 @@ export const WEAPON_MASTER_DATA: Item[] = [
     isDroppable: false
   },
   {
-    id: 'starter_staff_001',
-    name: 'Novice Staff',
+    id: 'ash_bow',
+    name: 'Ash Bow',
     description:
-      'A polished wooden rod that helps channel focal energy during long studies.',
+      'A flexible wooden bow strung with simple twine. Good for keeping distance.',
     type: 'weapon',
     rarity: 'common',
-    sprite: 'wpn_novice_staff',
+    sprite: 'ash_bow',
     baseValue: 0,
-    itemClass: 'mage',
+    itemClass: 'ranger',
     stats: {
-      base_damage: 5
+      base_damage: 6
     },
     isDroppable: false
   },
   {
-    id: 'starter_daggers_001',
+    id: 'elm_bow',
+    name: 'Elm Bow',
+    description:
+      'A flexible wooden bow strung with simple twine. Good for keeping distance.',
+    type: 'weapon',
+    rarity: 'common',
+    sprite: 'elm_bow',
+    baseValue: 0,
+    itemClass: 'ranger',
+    stats: {
+      base_damage: 8
+    },
+    isDroppable: false
+  },
+  {
+    id: 'yew_bow',
+    name: 'Yew Bow',
+    description:
+      'A flexible wooden bow strung with simple twine. Good for keeping distance.',
+    type: 'weapon',
+    rarity: 'common',
+    sprite: 'yew_bow',
+    baseValue: 0,
+    itemClass: 'ranger',
+    stats: {
+      base_damage: 10,
+      vigor: 1
+    },
+    isDroppable: false
+  },
+  {
+    id: 'moonwood_bow',
+    name: 'Moonwood Bow',
+    description:
+      'A flexible wooden bow strung with simple twine. Good for keeping distance.',
+    type: 'weapon',
+    rarity: 'common',
+    sprite: 'moonwood_bow',
+    baseValue: 0,
+    itemClass: 'ranger',
+    stats: {
+      base_damage: 12,
+      vigor: 2
+    },
+    isDroppable: false
+  },
+  {
+    id: 'dragonsine_bow',
+    name: 'Dragonsine Bow',
+    description:
+      'A flexible wooden bow strung with simple twine. Good for keeping distance.',
+    type: 'weapon',
+    rarity: 'common',
+    sprite: 'dragonsine_bow',
+    baseValue: 0,
+    itemClass: 'ranger',
+    stats: {
+      base_damage: 15,
+      vigor: 3,
+      power: 1
+    },
+    isDroppable: false
+  },
+  {
+    id: 'starter_daggers',
     name: 'Rusty Daggers',
     description:
       'A pair of lightweight iron daggers designed for rapid, fluid strikes.',
@@ -62,127 +300,83 @@ export const WEAPON_MASTER_DATA: Item[] = [
     isDroppable: false
   },
   {
-    id: 'bronze_sword_001',
-    name: 'Bronze Sword',
+    id: 'iron_daggers',
+    name: 'Iron Daggers',
     description:
-      'Forged from a simple copper-tin alloy. Notably sharper than a training blade.',
+      'A pair of lightweight iron daggers designed for rapid, fluid strikes.',
     type: 'weapon',
     rarity: 'common',
-    sprite: 'wpn_bronze_sword',
-    baseValue: 45,
-    itemClass: 'warrior',
+    sprite: 'iron_daggers',
+    baseValue: 0,
+    itemClass: 'rogue',
     stats: {
-      base_damage: 6
+      base_damage: 7
     },
-    isDroppable: true
+    isDroppable: false
   },
   {
-    id: 'hunting_bow_001',
-    name: 'Hunting Bow',
-    description:
-      'A reinforced recurve bow built for taking down small game. Offers steady tension.',
-    type: 'weapon',
-    rarity: 'common',
-    sprite: 'wpn_hunting_bow',
-    baseValue: 45,
-    itemClass: 'ranger',
-    stats: {
-      base_damage: 6
-    },
-    isDroppable: true
-  },
-  {
-    id: 'apprentice_staff_001',
-    name: 'Apprentice Staff',
-    description:
-      'Carved from seasoned willow and capped with a polished brass ring to steady your focus.',
-    type: 'weapon',
-    rarity: 'common',
-    sprite: 'wpn_apprentice_staff',
-    baseValue: 45,
-    itemClass: 'mage',
-    stats: {
-      base_damage: 6
-    },
-    isDroppable: true
-  },
-  {
-    id: 'steel_daggers_001',
+    id: 'steel_daggers',
     name: 'Steel Daggers',
     description:
-      'Mass-produced steel blades. Light, highly balanced, and incredibly swift.',
+      'A pair of lightweight iron daggers designed for rapid, fluid strikes.',
     type: 'weapon',
     rarity: 'common',
-    sprite: 'wpn_steel_daggers',
-    baseValue: 45,
+    sprite: 'steel_daggers',
+    baseValue: 0,
     itemClass: 'rogue',
     stats: {
-      base_damage: 6
+      base_damage: 9
     },
-    isDroppable: true
+    isDroppable: false
   },
   {
-    id: 'vanguard_blade_001',
-    name: 'Vanguard Greatsword',
+    id: 'mithril_daggers',
+    name: 'Mithril Daggers',
     description:
-      'A heavy, well-tempered steel blade that demands incredible resolve to wield. Its weight bolsters your physical presence.',
+      'A pair of lightweight iron daggers designed for rapid, fluid strikes.',
     type: 'weapon',
-    rarity: 'uncommon',
-    sprite: 'wpn_vanguard_blade',
-    baseValue: 120,
-    itemClass: 'warrior',
-    stats: {
-      base_damage: 8,
-      power: 1
-    },
-    isDroppable: true
-  },
-  {
-    id: 'scout_longbow_001',
-    name: 'Ranger Longbow',
-    description:
-      "Crafted from flexible yew wood and wrapped in oiled leather. Its exceptional balance brings out a marksman's natural fortune.",
-    type: 'weapon',
-    rarity: 'uncommon',
-    sprite: 'wpn_ranger_longbow',
-    baseValue: 120,
-    itemClass: 'ranger',
-    stats: {
-      base_damage: 8,
-      vigor: 1
-    },
-    isDroppable: true
-  },
-  {
-    id: 'scholar_conduit_001',
-    name: 'Savant Scepter',
-    description:
-      'An ornate rod topped with a glowing amber focusing stone. It naturally accelerates mental pacing and mental stamina.',
-    type: 'weapon',
-    rarity: 'uncommon',
-    sprite: 'wpn_savant_scepter',
-    baseValue: 125,
-    itemClass: 'mage',
-    stats: {
-      base_damage: 8,
-      power: 1
-    },
-    isDroppable: true
-  },
-  {
-    id: 'assassin_stilletos_001',
-    name: 'Kris Stilletos',
-    description:
-      'Wavy-bladed daggers designed to slip cleanly past heavy defense armor plates. Wielding them requires swift, lucky timing.',
-    type: 'weapon',
-    rarity: 'uncommon',
-    sprite: 'wpn_kris_stilettos',
-    baseValue: 115,
+    rarity: 'common',
+    sprite: 'mithril_daggers',
+    baseValue: 0,
     itemClass: 'rogue',
     stats: {
-      base_damage: 8,
+      base_damage: 11,
       luck: 1
     },
-    isDroppable: true
+    isDroppable: false
+  },
+  {
+    id: 'adamant_daggers',
+    name: 'Adamant Daggers',
+    description:
+      'A pair of lightweight iron daggers designed for rapid, fluid strikes.',
+    type: 'weapon',
+    rarity: 'common',
+    sprite: 'adamant_daggers',
+    baseValue: 0,
+    itemClass: 'rogue',
+    stats: {
+      base_damage: 15,
+      luck: 2,
+      vigor: 1
+    },
+    isDroppable: false
+  },
+  {
+    id: 'shaowfang_daggers',
+    name: 'Shadowfang Daggers',
+    description:
+      'A pair of lightweight iron daggers designed for rapid, fluid strikes.',
+    type: 'weapon',
+    rarity: 'common',
+    sprite: 'shadowfang_daggers',
+    baseValue: 0,
+    itemClass: 'rogue',
+    stats: {
+      base_damage: 17,
+      luck: 3,
+      vigor: 2
+    },
+    isDroppable: false
   }
 ]

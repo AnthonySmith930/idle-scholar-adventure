@@ -11,9 +11,12 @@ export const heroesTable = sqliteTable('heroes', {
   sprite: text().notNull(),
   class: text('class').$type<HeroClass>().notNull(),
   level: int().default(1).notNull(),
+  unassignedStatPoints: int('unassigned_stat_points').default(0).notNull(),
   current_exp: int().default(0).notNull(),
   gold: int().default(0).notNull(),
   total_time_adventuring: int().default(0).notNull(),
+  activeQuestId: text('active_quest_id'),
+  previousQuestId: text('previous_quest_id'),
 
   // gear
   equipment: text({ mode: 'json' })

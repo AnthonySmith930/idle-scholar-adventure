@@ -19,6 +19,16 @@ interface HeroState {
     sprite: string
   ) => Promise<void>
   addGoldToHero: (heroId: string, amount: number) => Promise<void>
+  updateHeroStats: (
+    heroId: string,
+    allocatedStats: {
+      power: number
+      fortitude: number
+      vigor: number
+      luck: number
+    },
+    remainingPoints: number
+  ) => Promise<void>
 }
 
 export const useHeroStore = create<HeroState>((set, get) => ({
@@ -41,6 +51,7 @@ export const useHeroStore = create<HeroState>((set, get) => ({
       id: newHeroId,
       name,
       level: 1,
+      unassignedStatPoints: 0,
       class: heroClass,
       sprite,
       createdAt: Date.now(),
@@ -48,6 +59,8 @@ export const useHeroStore = create<HeroState>((set, get) => ({
       current_exp: 0,
       total_time_adventuring: 0,
       gold: 0,
+      activeQuestId: null,
+      previousQuestId: null,
       ...generateStartingStats(heroClass)
     }
 
@@ -96,16 +109,49 @@ export const useHeroStore = create<HeroState>((set, get) => ({
     } catch (error) {
       console.error(`Failed to save gold update for hero ${heroId}:`, error)
     }
+  },
+
+  updateHeroStats: async (heroId, allocatedStats, remainingPoints) => {
+    try {
+      await db
+        .update(heroesTable)
+        .set({
+          power: allocatedStats.power,
+          fortitude: allocatedStats.fortitude,
+          vigor: allocatedStats.vigor,
+          luck: allocatedStats.luck,
+          unassignedStatPoints: remainingPoints
+        })
+        .where(eq(heroesTable.id, heroId))
+
+      set((state) => ({
+        heroes: state.heroes.map((hero) =>
+          hero.id === heroId
+            ? {
+                ...hero,
+                ...allocatedStats,
+                unassignedStatPoints: remainingPoints
+              }
+            : hero
+        )
+      }))
+    } catch (error) {
+      console.error(
+        `Failed to persist allocated stat points for hero ${heroId}:`,
+        error
+      )
+      throw error
+    }
   }
 }))
 
 // Selectors/hooks
 export const useHeroes = () => useHeroStore((state) => state.heroes)
 export const useRecruitHero = () => useHeroStore((state) => state.recruitHero)
-export const useTotalQuestTime = () => {
-  return useHeroStore((state) =>
+export const useTotalQuestTime = () =>
+  useHeroStore((state) =>
     state.heroes.reduce((sum, hero) => sum + hero.total_time_adventuring, 0)
   )
-}
 export const useIsAccountLoading = () =>
   useHeroStore((state) => !state.isHydrated)
+export const useUpdateHeroStats = () => useHeroStore((state) => state.updateHeroStats)

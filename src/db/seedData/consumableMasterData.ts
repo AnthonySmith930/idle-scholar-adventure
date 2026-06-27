@@ -2,12 +2,12 @@ import { Item } from '@/types/game'
 
 export const CONSUMABLE_MASTER_DATA: Item[] = [
   {
-    id: 'potion_minor_hp_001',
+    id: 'hp_potion',
     name: 'Brewed Tonic',
     description: 'A bitter herbal infusion that quickly patches up minor scrapes and physical exhaustion.',
     type: 'consumable',
     rarity: 'common',
-    sprite: 'con_brewed_tonic',
+    sprite: 'hp_potion',
     baseValue: 15,
     itemClass: 'all',
     stats: {
@@ -17,7 +17,7 @@ export const CONSUMABLE_MASTER_DATA: Item[] = [
     isDroppable: true
   },
   {
-    id: 'snack_coffee_001',
+    id: 'cold_brew',
     name: 'Cold-Brew Concentrate',
     description: 'Incredibly strong roasted bean press. The pure caffeine spike instantly forces away creeping brain fog.',
     type: 'consumable',
@@ -32,12 +32,12 @@ export const CONSUMABLE_MASTER_DATA: Item[] = [
     isDroppable: true
   },
   {
-    id: 'consumable_buff_focus_001',
-    name: 'Matcha Concentration Shot',
+    id: 'focus_potion',
+    name: 'Potion of Focus',
     description: 'A concentrated green tea shot that heightens spatial awareness and mental stamina. Consumed at quest start to boost power and vigor.',
     type: 'consumable',
     rarity: 'uncommon',
-    sprite: 'con_matcha_shot',
+    sprite: 'focus_potion',
     baseValue: 40,
     itemClass: 'all',
     stats: {
@@ -49,12 +49,12 @@ export const CONSUMABLE_MASTER_DATA: Item[] = [
     isDroppable: true
   },
   {
-    id: 'consumable_buff_grit_001',
-    name: 'Ironheart Root Extract',
+    id: 'grit_potion',
+    name: 'Potion of Grit',
     description: 'A thick, earthy syrup that hardens muscles and settles breathing. Consumed at quest start to elevate offensive power and physical fortitude.',
     type: 'consumable',
     rarity: 'uncommon',
-    sprite: 'con_ironheart_extract',
+    sprite: 'grit_potion',
     baseValue: 40,
     itemClass: 'all',
     stats: {
@@ -66,12 +66,12 @@ export const CONSUMABLE_MASTER_DATA: Item[] = [
     isDroppable: true
   },
   {
-    id: 'consumable_buff_scout_001',
-    name: 'Elixir of Clarity',
+    id: 'scout_potion',
+    name: 'Potion of the Scout',
     description: 'A sparkling blue tincture that sharpens the senses and quickens reflexes. Consumed at quest start to enhance physical vigor and item-hunting luck.',
     type: 'consumable',
     rarity: 'uncommon',
-    sprite: 'con_clarity_elixir',
+    sprite: 'scout_potion',
     baseValue: 45,
     itemClass: 'all',
     stats: {

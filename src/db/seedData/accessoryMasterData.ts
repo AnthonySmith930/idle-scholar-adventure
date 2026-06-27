@@ -2,13 +2,13 @@ import { Item } from '@/types/game'
 
 export const ACCESSORY_MASTER_DATA: Item[] = [
   {
-    id: 'hour_glass_pendant_001',
-    name: 'Savant Hourglass',
+    id: 'hour_glass_pendant',
+    name: 'Hourglass Pendant',
     description:
       'A miniature sand-timer worn around the neck. It shortens your mental ramp-up phase.',
     type: 'accessory',
     rarity: 'uncommon',
-    sprite: 'acc_savant_hourglass',
+    sprite: 'hour_glass_pendant',
     baseValue: 150,
     itemClass: 'all',
     stats: {
@@ -19,13 +19,13 @@ export const ACCESSORY_MASTER_DATA: Item[] = [
     isDroppable: true
   },
   {
-    id: 'monocle_lens_001',
+    id: 'monocle_lens',
     name: 'Focusing Lens',
     description:
       'A single glass lens that keeps surrounding distractions completely boxed out of view.',
     type: 'accessory',
     rarity: 'uncommon',
-    sprite: 'acc_focusing_lens',
+    sprite: 'monocle_lens',
     baseValue: 160,
     itemClass: 'all',
     stats: {
@@ -36,13 +36,13 @@ export const ACCESSORY_MASTER_DATA: Item[] = [
     isDroppable: true
   },
   {
-    id: 'philosopher_stone_001',
-    name: 'Chalk Stone Pouch',
+    id: 'philosopher_stone',
+    name: 'Stone of Insight',
     description:
       'A small pouch filled with high-friction climbing chalk. Keeps your grip steady when mental fatigue sets in.',
     type: 'accessory',
     rarity: 'uncommon',
-    sprite: 'acc_chalk_pouch',
+    sprite: 'philosopher_stone',
     baseValue: 140,
     itemClass: 'all',
     stats: {
@@ -53,13 +53,13 @@ export const ACCESSORY_MASTER_DATA: Item[] = [
     isDroppable: true
   },
   {
-    id: 'mercenary_coin_001',
-    name: 'Minted Ledger Emblem',
+    id: 'mercenary_coin',
+    name: 'Mercenary Coin',
     description:
       'A heavy brass sigil favored by traveling scribes. It tracks and optimizes your resource gains, boosting gold collection.',
     type: 'accessory',
     rarity: 'uncommon',
-    sprite: 'acc_ledger_emblem',
+    sprite: 'mercenary_coin',
     baseValue: 155,
     itemClass: 'all',
     stats: {
@@ -70,13 +70,13 @@ export const ACCESSORY_MASTER_DATA: Item[] = [
     isDroppable: true
   },
   {
-    id: 'ancient_scroll_weights_001',
-    name: 'Tome-Weight Band',
+    id: 'ancient_scroll',
+    name: 'Ancient Scroll',
     description:
       'Engraved stone weights meant to keep study books open. Wearing them keeps your core academic progression highly disciplined.',
     type: 'accessory',
     rarity: 'uncommon',
-    sprite: 'acc_tome_weights',
+    sprite: 'ancient_scroll',
     baseValue: 165,
     itemClass: 'all',
     stats: {
@@ -87,13 +87,13 @@ export const ACCESSORY_MASTER_DATA: Item[] = [
     isDroppable: true
   },
   {
-    id: 'lucky_dice_charm_001',
-    name: "Gambler's Bone Die",
+    id: 'lucky_dice_charm',
+    name: 'Lucky Dice Charm',
     description:
       'A small bone shaped like a diie.It subtly leans your luck toward dramatic critical opportunities.',
     type: 'accessory',
     rarity: 'uncommon',
-    sprite: 'acc_bone_die',
+    sprite: 'lucky_dice_charm',
     baseValue: 135,
     itemClass: 'all',
     stats: {

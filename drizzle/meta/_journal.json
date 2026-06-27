@@ -57,6 +57,13 @@
       "when": 1782411549550,
       "tag": "0007_worthless_masked_marvel",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "6",
+      "when": 1782432440890,
+      "tag": "0008_dusty_switch",
+      "breakpoints": true
     }
   ]
 }
