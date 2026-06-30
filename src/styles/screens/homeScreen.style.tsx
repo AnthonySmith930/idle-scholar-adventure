@@ -2,14 +2,16 @@ import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   backgroundImage: {
+    paddingHorizontal: 16,
     flex: 1,
     backgroundColor: '#f6f1ca' 
   },
   scrollView: {
-    flex: 1
+    flex: 1,
+    paddingTop: 16
   },
   scrollContent: {
-    paddingHorizontal: 16,
+
     paddingBottom: 40 
   },
   addHeroButton: {

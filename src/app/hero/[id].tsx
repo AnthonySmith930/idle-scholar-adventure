@@ -104,7 +104,7 @@ export default function HeroDetailScreen() {
           ]}
         >
           <Text style={styles.primaryQuestBtnText}>
-            {hero.activeQuestId ? '⚠️ LIVE CHRONICLE' : '🚀 DEPLOY ON QUEST'}
+            {hero.activeQuestId ? '⚠️ LIVE CHRONICLE' : 'Select Adventure'}
           </Text>
         </Pressable>
       </View>

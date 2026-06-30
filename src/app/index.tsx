@@ -36,26 +36,21 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView style={styles.backgroundImage}>
+      <GlobalDashboard
+        totalGold={globalGold}
+        totalTimeSeconds={totalTimeSeconds}
+        activeScholarsCount={heroes.length}
+        maxScholarsCount={maxScholarsCount}
+        onSettingsPress={handleSettingsPress}
+      />
+
       <ScrollView
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* Macro Account Status Header Board */}
-        <GlobalDashboard
-          totalGold={globalGold}
-          totalTimeSeconds={totalTimeSeconds}
-          activeScholarsCount={heroes.length}
-          maxScholarsCount={maxScholarsCount}
-          onSettingsPress={handleSettingsPress}
-        />
-
         {heroes.map((hero) => (
-          <HeroCard
-            key={hero.id}
-            heroId={hero.id}
-            onPress={handleHeroSelect}
-          >
+          <HeroCard key={hero.id} heroId={hero.id} onPress={handleHeroSelect}>
             <HeroAvatar spriteKey={hero.sprite} />
             <View style={{ flex: 1 }}>
               <HeroInfo name={hero.name} />

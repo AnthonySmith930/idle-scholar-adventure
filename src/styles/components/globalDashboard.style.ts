@@ -5,8 +5,7 @@ export const styles = StyleSheet.create({
     width: '100%',
     padding: 16,
     borderWidth: 4,
-    borderRadius: 0,
-    marginBottom: 16
+    borderRadius: 0
   },
   topBar: {
     flexDirection: 'row',
