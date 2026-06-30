@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="64" height="64" version="1.1" viewBox="0 0 16.933 16.933" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><g><g transform="translate(.031528 .062366)" fill="#fff"><rect transform="rotate(45)" x="11.322" y="6.7737" width="1.1709" height="4.4786" stroke-width=".069574"/><path d="m14.753 3.2914-10.525 10.525-1.2045-1.2045 10.525-10.525 3.2729-2.0686z" stroke-width=".043411"/><rect transform="matrix(-.70711 .70711 .70711 .70711 0 0)" x="5.8598" y="9.6745" width=".91975" height="4.4656" rx=".21705" ry=".21705" stroke-width=".043411"/></g></g><style>.filled { cursor: pointer;					transition: fill 0.3s; }
+.filled:hover,#g2187 { fill: #7711AA; }
+.filled.built { fill: #7711AA; }
+.filled.built:hover { fill: inherit; }
+</style></svg>

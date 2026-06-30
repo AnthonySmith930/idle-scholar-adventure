@@ -5,10 +5,10 @@ export const idleSchalorLightTheme: Theme = {
   dark: false,
   colors: {
     primary: 'rgb(255, 255, 255)',
-    secondary: '#cfa57aff',
+    secondary: '#288AA5ff',
     background: '#FFFFFF',
     gradientBackground: ['#ffffff', '#e7e8f8ff', '#c7c8f5ff'],
-    surface: '#9a5b4fff',
+    surface: '#03D3AEff',
     input: '#ffffff',
     border: '#161b21ff',
     error: '#DC2626',
@@ -16,8 +16,8 @@ export const idleSchalorLightTheme: Theme = {
     warning: '#eacf00ff',
     info: '#3B82F6',
     text: {
-      primary: 'rgb(172, 186, 209)',
-      secondary: 'rgb(193, 204, 219)',
+      primary: 'rgb(93, 36, 4)',
+      secondary: 'rgb(145, 57, 6)',
       button: '#ffffffff',
       link: '#1d3fe8ff',
       error: '#DC2626'

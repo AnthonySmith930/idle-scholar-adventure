@@ -6,6 +6,7 @@ import { HeroTray } from '@/components/HeroTray'
 import { ExperienceBar } from '@/components/ExperienceBar'
 import { EquipmentTable } from '@/components/EquipmentTable'
 import { styles } from '@/styles/screens/heroScreen.style'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function HeroDetailScreen() {
   const router = useRouter()
@@ -54,7 +55,7 @@ export default function HeroDetailScreen() {
   }
 
   return (
-    <View style={[styles.screenWrapper, { backgroundColor: '#020617' }]}>
+    <SafeAreaView style={[styles.screenWrapper, { backgroundColor: '#020617' }]}>
       {/* 🧭 Back Navigation Header */}
       <View style={[styles.headerNav, { borderColor: theme.colors.border }]}>
         <Pressable 
@@ -63,7 +64,7 @@ export default function HeroDetailScreen() {
         >
           <Text style={styles.backBtnText}>{"< RETURN"}</Text>
         </Pressable>
-        <Text style={styles.headerTitle}>HERO PROFILE</Text>
+        <Text style={styles.headerTitle}>{hero.name}</Text>
         <View style={styles.headerSpacer} />
       </View>
 
@@ -75,7 +76,7 @@ export default function HeroDetailScreen() {
         <ExperienceBar currentExp={hero.current_exp} level={hero.level} />
 
         {/* Section Divide: Equipment Core Inventory Section */}
-        <Text style={styles.sectionLabelText}>EQUIPPED ARTIFACTS</Text>
+        <Text style={styles.sectionLabelText}>EQUIPPED ITEMS</Text>
         
         {/* Module C: 4-Slot Grid Item Matrix Row */}
         <EquipmentTable equipment={hero.equipment} />
@@ -107,6 +108,6 @@ export default function HeroDetailScreen() {
           </Text>
         </Pressable>
       </View>
-    </View>
+    </SafeAreaView>
   )
 }

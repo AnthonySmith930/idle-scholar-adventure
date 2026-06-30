@@ -10,14 +10,5 @@ export const styles = StyleSheet.create({
   },
   nameText: {
     letterSpacing: 0.5
-  },
-  goldRow: {
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
-  goldValue: {
-    fontFamily: 'System',
-    fontWeight: 'bold',
-    marginLeft: 4
   }
 })

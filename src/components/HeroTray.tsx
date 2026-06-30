@@ -26,7 +26,7 @@ export function HeroTray({ hero, onConfirmStats }: HeroTrayProps) {
   return (
     <View style={[styles.container, { borderColor: theme.colors.border }]}>
       <View style={styles.headerRow}>
-        <Text style={styles.headerTitle}>HERO STATUS</Text>
+        <Text style={styles.headerTitle}>HERO PROFILE</Text>
         <Pressable
           onPress={() =>
             setViewMode((prev) => (prev === 'avatar' ? 'stats' : 'avatar'))
@@ -43,7 +43,9 @@ export function HeroTray({ hero, onConfirmStats }: HeroTrayProps) {
       </View>
 
       {viewMode === 'avatar' ? (
-        <HeroAvatar spriteKey={hero.sprite} />
+        <View style={{ alignItems: 'center' }}>
+          <HeroAvatar spriteKey={hero.sprite} size={224} />
+        </View>
       ) : (
         <HeroStatCard hero={hero} onConfirmStats={onConfirmStats} />
       )}

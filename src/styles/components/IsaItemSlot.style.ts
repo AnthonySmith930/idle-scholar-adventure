@@ -2,12 +2,12 @@ import { StyleSheet, Platform } from 'react-native'
 
 export const styles = StyleSheet.create({
   slotFrame: {
-    width: 64,
-    height: 64,
-    borderWidth: 4, // Thick 8-bit framing
-    borderRadius: 0, // Explicit sharp box corners
+    width: 86,
+    height: 86,
+    borderWidth: 4,
+    borderRadius: 0,
     position: 'relative',
-    overflow: 'hidden', // Keeps the glossy highlight layer clipped neatly
+    overflow: 'hidden',
     justifyContent: 'center',
     alignItems: 'center',
     ...Platform.select({
@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
   },
   slotPressed: {
     opacity: 0.8,
-    transform: [{ scale: 0.95 }] // Quick tactile shrink feedback on tap
+    transform: [{ scale: 0.95 }]
   },
   rarityBacking: {
     position: 'absolute',
@@ -32,33 +32,20 @@ export const styles = StyleSheet.create({
     left: 4,
     right: 4,
     bottom: 4,
-    opacity: 0.25 // Soft glow fill so the sprite stands out neatly
-  },
-  glossyLip: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    height: 3, // Bright retro sheen at the top layer edge
-    backgroundColor: '#FFFFFF',
-    opacity: 0.35
+    opacity: 0.25
   },
   itemSprite: {
-    width: 32,
-    height: 32,
     zIndex: 2
   },
   emptyCenter: {
     width: 16,
     height: 16,
     borderWidth: 2,
-    borderStyle: 'dashed', // Clean "equip here" placeholder box
+    borderStyle: 'dashed',
     opacity: 0.3
   },
-  placeholderSprite: {
-    width: 24,
-    height: 24,
-    opacity: 0.2, // Gives it that nice, faint "not equipped yet" transparency look
+  emptySprite: {
+    opacity: 0.2,
     zIndex: 1
   },
   baseFrameStyle: {

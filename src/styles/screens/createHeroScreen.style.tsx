@@ -45,9 +45,13 @@ export const styles = StyleSheet.create({
     fontSize: 12
   },
   rollButton: {
-    marginLeft: 8,
+    marginLeft: 24,
     height: 48,
     justifyContent: 'center'
+  },
+  rollPressed: {
+    opacity: 0.7,
+    transform: [{ scale: 0.9 }]
   },
   toggleRow: {
     flexDirection: 'row'

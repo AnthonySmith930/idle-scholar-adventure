@@ -1,6 +1,11 @@
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
+  container: {
+    paddingLeft: 12,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
   rowContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -13,5 +18,15 @@ export const styles = StyleSheet.create({
     width: 28,
     height: 28,
     borderWidth: 2
+  },
+  goldRow: {
+    marginBottom: 8,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  goldValue: {
+    fontFamily: 'System',
+    fontWeight: 'bold',
+    marginLeft: 4
   }
 })

@@ -13,6 +13,6 @@ export const styles = StyleSheet.create({
     borderColor: '#334155'
   },
   slotSpacing: {
-    marginRight: 12 // Clean gaps between your 4 grid units
+    marginRight: 4 // Clean gaps between your 4 grid units
   }
 })

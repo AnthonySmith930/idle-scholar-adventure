@@ -2,6 +2,7 @@ import { View, Pressable } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import { IsaText } from './IsaText'
 import { useTheme } from '@/stores/themeStore'
+import { Image } from 'expo-image'
 import { styles } from '@/styles/components/globalDashboard.style'
 
 interface GlobalDashboardProps {
@@ -48,11 +49,7 @@ export function GlobalDashboard({
       {/* Top Bar: Title & Settings Cog */}
       <View style={styles.topBar}>
         <View style={styles.titleContainer}>
-          <IsaText
-            variant="heading"
-            size="sm"
-            style={styles.titleText}
-          >
+          <IsaText variant="heading" size="xs" style={styles.titleText}>
             IDLE SCHOLAR ADVENTURES
           </IsaText>
         </View>
@@ -64,32 +61,56 @@ export function GlobalDashboard({
             pressed && styles.cogPressed
           ]}
         >
-          <Ionicons
-            name="cog-sharp"
-            size={24}
-            color={theme.colors.text.primary}
-          />
+          <Image
+              style={{ width: 24, height: 24 }}
+              source={require('~/assets/images/icons/settings_icon.svg')}
+              contentFit="contain"
+              transition={150}
+              cachePolicy="disk"
+            />
         </Pressable>
       </View>
 
       {/* Stats Panel Grid */}
-      <View style={[styles.statsPanel, { backgroundColor: theme.colors.surface, borderColor: theme.colors.border }]}>
+      <View
+        style={[
+          styles.statsPanel,
+          {
+            backgroundColor: theme.colors.surface,
+            borderColor: theme.colors.border
+          }
+        ]}
+      >
         {/* Left Column: Account Wide Accumulations */}
         <View style={styles.statColumn}>
           <View style={styles.statRow}>
             <IsaText size="xs" style={{ color: theme.colors.text.secondary }}>
               TOTAL GOLD:
             </IsaText>
+            <Image
+              style={{ width: 24, height: 24 }}
+              source={require('~/assets/images/icons/gold_purse_icon.svg')}
+              contentFit="contain"
+              transition={150}
+              cachePolicy="disk"
+            />
             <IsaText size="sm" style={styles.statValue}>
-              💰 {formatCompressedGold(totalGold)}
+              {formatCompressedGold(totalGold)}
             </IsaText>
           </View>
           <View style={styles.statRow}>
             <IsaText size="xs" style={{ color: theme.colors.text.secondary }}>
               QUEST TIME:
             </IsaText>
+            <Image
+              style={{ width: 24, height: 24 }}
+              source={require('~/assets/images/icons/clock_icon.svg')}
+              contentFit="contain"
+              transition={150}
+              cachePolicy="disk"
+            />
             <IsaText size="sm" style={styles.statValue}>
-              ⏳ {formatQuestTime(totalTimeSeconds)}
+              {formatQuestTime(totalTimeSeconds)}
             </IsaText>
           </View>
         </View>

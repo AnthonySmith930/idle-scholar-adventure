@@ -1,20 +1,20 @@
 import { View } from 'react-native'
-import { Image, ImageSource } from 'expo-image'
+import { Image } from 'expo-image'
 import { useTheme } from '@/stores/themeStore'
 import { styles } from '@/styles/components/heroAvatar.style'
 
 const HERO_SPRITE_REGISTRY: Record<string, any> = {
-  warrior_male: require('~/assets/images/heroes/warrior.svg'),
-  warrior_female: require('~/assets/images/heroes/warrior.svg'),
-  mage_male: require('~/assets/images/heroes/warrior.svg'),
-  mage_female: require('~/assets/images/heroes/warrior.svg'),
-  rogue_male: require('~/assets/images/heroes/warrior.svg'),
-  rogue_female: require('~/assets/images/heroes/warrior.svg'),
-  ranger_male: require('~/assets/images/heroes/warrior.svg'),
-  ranger_female: require('~/assets/images/heroes/warrior.svg')
+  warrior_male: require('~/assets/images/heroes/warrior_male.svg'),
+  warrior_female: require('~/assets/images/heroes/warrior_female.svg'),
+  mage_male: require('~/assets/images/heroes/mage_male.svg'),
+  mage_female: require('~/assets/images/heroes/mage_female.svg'),
+  rogue_male: require('~/assets/images/heroes/rogue_male.svg'),
+  rogue_female: require('~/assets/images/heroes/rogue_female.svg'),
+  ranger_male: require('~/assets/images/heroes/ranger_male.svg'),
+  ranger_female: require('~/assets/images/heroes/ranger_female.svg')
 }
 
-const DEFAULT_SPRITE = require('~/assets/images/heroes/warrior.svg')
+const DEFAULT_SPRITE = require('~/assets/images/heroes/warrior_male.svg')
 
 interface HeroAvatarProps {
   spriteKey: string

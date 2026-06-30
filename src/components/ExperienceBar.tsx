@@ -18,7 +18,7 @@ export function ExperienceBar({ currentExp, level }: ExperienceBarProps) {
   return (
     <View style={styles.container}>
       <View style={styles.labelRow}>
-        <Text style={styles.labelText}>EXP CHRONICLE</Text>
+        <Text style={styles.labelText}>EXP</Text>
         <Text style={styles.valueText}>
           {isMaxLevel ? 'MAX LEVEL' : `${currentExp} / ${maxExp} (${Math.floor(progressPercent)}%)`}
         </Text>

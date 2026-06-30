@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 export const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
-    backgroundColor: '#090D16' 
+    backgroundColor: '#f6f1ca' 
   },
   scrollView: {
     flex: 1

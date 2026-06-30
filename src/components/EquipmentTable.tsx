@@ -10,24 +10,28 @@ interface EquipmentTableProps {
 export function EquipmentTable({ equipment }: EquipmentTableProps) {
   return (
     <View style={styles.container}>
+      {/* ⚔️ Weapon Slot */}
       <IsaItemSlot
         masterId={equipment.weapon?.masterId}
         slotType="weapon"
         style={styles.slotSpacing}
       />
 
+      {/* 🛡️ Armor Slot */}
       <IsaItemSlot
         masterId={equipment.armor?.masterId}
         slotType="armor"
         style={styles.slotSpacing}
       />
 
+      {/* 📿 Accessory Slot (Nullable) */}
       <IsaItemSlot
         masterId={equipment.accessory?.masterId}
         slotType="accessory"
         style={styles.slotSpacing}
       />
 
+      {/* 🧪 Consumable Slot (Nullable) */}
       <IsaItemSlot
         masterId={equipment.consumable?.masterId}
         slotType="consumable"

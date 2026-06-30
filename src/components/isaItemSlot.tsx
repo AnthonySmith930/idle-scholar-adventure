@@ -12,6 +12,7 @@ export type SlotType = 'weapon' | 'armor' | 'consumable' | 'accessory'
 interface IsaItemSlotProps {
   masterId?: string | null
   slotType: SlotType
+  variant?: 'compact' | 'default'
   isActive?: boolean
   style?: ViewStyle
 }
@@ -19,6 +20,7 @@ interface IsaItemSlotProps {
 export function IsaItemSlot({
   masterId,
   slotType,
+  variant = 'default',
   isActive = false,
   style
 }: IsaItemSlotProps) {
@@ -26,23 +28,25 @@ export function IsaItemSlot({
   const templates = useItemStore((state) => state.templates)
   const [modalVisible, setModalVisible] = useState(false)
 
+  const spriteSize = variant === 'compact' ? 24 : 64
+
   const itemTemplate = masterId
     ? templates.find((t) => t.id === masterId)
     : null
   const isEmpty = !itemTemplate
 
-  const getPlaceholderAsset = () => {
+  const getEmptyAsset = () => {
     switch (slotType) {
       case 'weapon':
-        return require('../../assets/images/placeholders/weapon-silhouette.svg')
+        return require('~/assets/images/empty/weapon_empty.svg')
       case 'armor':
-        return require('../../assets/images/placeholders/armor-silhouette.svg')
+        return require('~/assets/images/empty/armor_empty.svg')
       case 'accessory':
-        return require('../../assets/images/placeholders/accessory-silhouette.svg')
+        return require('~/assets/images/empty/accessory_empty.svg')
       case 'consumable':
-        return require('../../assets/images/placeholders/consumable-silhouette.svg')
+        return require('~/assets/images/empty/consumable_empty.svg')
       default:
-        return require('../../assets/images/placeholders/consumable-silhouette.svg')
+        return require('~/assets/images/empty/consumable_empty.svg')
     }
   }
 
@@ -63,27 +67,34 @@ export function IsaItemSlot({
         style={({ pressed }) => [
           styles.slotFrame,
           styles.baseFrameStyle,
-          { borderColor: currentBorderColor }, // Inline variable mapping
+          { borderColor: currentBorderColor },
           pressed && styles.slotPressed,
           style
         ]}
       >
+        {/* Make background component with rarity color/animation  */}
         {!isEmpty && (
           <View
-            style={[styles.rarityBacking, { backgroundColor: rarityColor }]}
+            style={[styles.rarityBacking]}
           />
         )}
 
         {isEmpty ? (
           <Image
-            source={getPlaceholderAsset()}
-            style={styles.placeholderSprite}
+            source={getEmptyAsset()}
+            style={[
+              styles.emptySprite,
+              { width: spriteSize, height: spriteSize }
+            ]}
             contentFit="contain"
           />
         ) : (
           <Image
             source={itemAsset}
-            style={styles.itemSprite}
+            style={[
+              styles.itemSprite,
+              { width: spriteSize, height: spriteSize }
+            ]}
             contentFit="contain"
           />
         )}

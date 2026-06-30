@@ -7,7 +7,8 @@ export type HeroClass = 'mage' | 'warrior' | 'ranger' | 'rogue'
 
 // ======== Item ========
 export type ItemId = typeof itemTable.$inferSelect
-export type Item = typeof itemTable.$inferInsert
+export type ItemInsert = typeof itemTable.$inferInsert
+export type Item = typeof itemTable.$inferSelect
 export type ItemClass = 'mage' | 'warrior' | 'ranger' | 'rogue' | 'all'
 export type ItemType = 'weapon' | 'armor' | 'consumable' | 'accessory'
 export type ItemRarity = 'common' | 'uncommon' | 'rare' | 'legendary'
@@ -34,27 +35,27 @@ interface StartingKit {
 
 export const CLASS_STARTING_KITS: Record<HeroClass, StartingKit> = {
   warrior: {
-    weaponMasterId: 'starter_sword_001', // Make sure these match your seed keys perfectly
+    weaponMasterId: 'starter_sword', // Make sure these match your seed keys perfectly
     weaponName: 'Dull Sword',
-    armorMasterId: 'starter_armor_warrior_001',
+    armorMasterId: 'starter_armor_warrior',
     armorName: 'Recruit Mail'
   },
   mage: {
-    weaponMasterId: 'starter_armor_mage_001',
+    weaponMasterId: 'starter_weapon_mage',
     weaponName: 'Novice Staff',
-    armorMasterId: 'armor_common_robes_001',
+    armorMasterId: 'starter_armor_mage',
     armorName: 'Initiate Robes'
   },
   ranger: {
-    weaponMasterId: 'starter_bow_001',
+    weaponMasterId: 'starter_bow',
     weaponName: 'Old Bow',
-    armorMasterId: 'starter_armor_ranger_001',
+    armorMasterId: 'starter_armor_ranger',
     armorName: 'Scout Leather'
   },
   rogue: {
-    weaponMasterId: 'starter_armor_rogue_001',
+    weaponMasterId: 'starter_daggers',
     weaponName: 'Rusty Daggers',
-    armorMasterId: 'armor_common_tunic_001',
+    armorMasterId: 'starter_armor_rogue',
     armorName: 'Tattered Gambeson'
   }
 }

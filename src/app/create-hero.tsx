@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { View, TextInput, ScrollView } from 'react-native'
+import { View, TextInput, ScrollView, Pressable } from 'react-native'
 import { useRouter } from 'expo-router'
+import { Image } from 'expo-image'
 import { useRecruitHero, useHeroes } from '@/stores/heroStore'
 import { IsaButton } from '@/components/IsaButton'
 import { IsaText } from '@/components/IsaText'
@@ -51,7 +52,7 @@ const CLASSES: { id: HeroClass; label: string; description: string }[] = [
   },
   {
     id: 'ranger',
-    label: 'SCHOLAR',
+    label: 'RANGER',
     description: 'Tactical genius. Maximizes research & EXP gains.'
   }
 ]
@@ -120,7 +121,7 @@ export default function CreateHeroScreen() {
       contentContainerStyle={styles.scrollContent}
     >
       <IsaText variant="heading" size="xl" style={styles.title}>
-        RECRUIT SCHOLAR
+        RECRUIT HERO
       </IsaText>
 
       {/* Avatar Preview Display Frame */}
@@ -151,11 +152,21 @@ export default function CreateHeroScreen() {
             placeholderTextColor="#4B5563"
             maxLength={16}
           />
-          <IsaButton
-            title="ROLL"
+          <Pressable
             onPress={() => rollRandomName(gender)}
-            style={styles.rollButton}
-          />
+            style={({ pressed }) => [
+              styles.rollButton,
+            pressed && styles.rollPressed
+            ]}
+          >
+            <Image
+              style={{ width: 64, height: 64 }}
+              source={require('~/assets/images/icons/roll_icon.svg')}
+              contentFit="contain"
+              transition={150}
+              cachePolicy="disk"
+            />
+          </Pressable>
         </View>
       </View>
 

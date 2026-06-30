@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="64" height="64" version="1.1" viewBox="0 0 16.933 16.933" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><g><g transform="translate(-1.6804 -2.4568)" fill="#fefefe"><path d="m10.97 4.0045s-0.1619 1.9891 1.5655 3.3795c0.62084 0.49971 1.395 0.75969 1.9501 1.3148 1.1102 1.1102 1.7969 2.6441 1.7969 4.3383 0 3.3884-2.7469 6.1352-6.1352 6.1352-3.3884 0-6.1352-2.7469-6.1352-6.1352 0-1.6942 0.6867-3.228 1.7969-4.3383 0.55513-0.55513 1.3041-0.84817 1.9501-1.3148 1.9532-1.4109 1.5633-3.3786 1.5633-3.3786" stroke-width=".086271"/><rect x="8.8954" y="3.2684" width="2.5034" height=".73631" rx=".35768" ry=".35768" stroke-width=".086271"/><rect x="9.1404" y="2.6746" width="2.0037" height=".58933" rx=".28628" ry=".28628"/></g></g><style>.filled { cursor: pointer;					transition: fill 0.3s; }
+.filled:hover,#g2187 { fill: #7711AA; }
+.filled.built { fill: #7711AA; }
+.filled.built:hover { fill: inherit; }
+</style></svg>

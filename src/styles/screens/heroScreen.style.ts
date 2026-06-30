@@ -19,14 +19,11 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingTop: 48, // Comfortably padding past notch margins natively
-    paddingBottom: 16,
-    paddingHorizontal: 16,
+    padding: 16,
     borderBottomWidth: 2,
     backgroundColor: '#0F172A',
   },
   backBtn: {
-    paddingVertical: 4,
   },
   backBtnText: {
     fontFamily: 'PressStart2P_400Regular',
@@ -36,7 +33,7 @@ export const styles = StyleSheet.create({
   headerTitle: {
     fontFamily: 'PressStart2P_400Regular',
     color: '#FFFFFF',
-    fontSize: 12,
+    fontSize: 12
   },
   headerSpacer: {
     width: 60, // Symmetrical counterweight offset tracking back title

@@ -363,7 +363,7 @@ export const WEAPON_MASTER_DATA: Item[] = [
     isDroppable: false
   },
   {
-    id: 'shaowfang_daggers',
+    id: 'shadowfang_daggers',
     name: 'Shadowfang Daggers',
     description:
       'A pair of lightweight iron daggers designed for rapid, fluid strikes.',

@@ -5,7 +5,7 @@ import { GlobalDashboard } from '@/components/GlobalDashboard'
 import { HeroCard } from '@/components/HeroCard'
 import { HeroAvatar } from '@/components/HeroAvatar'
 import { HeroInfo } from '@/components/HeroInfo'
-import { MiniGearRow } from '@/components/MiniItemsRow'
+import { MiniGearRow } from '@/components/MiniGearRow'
 import { IsaButton } from '@/components/IsaButton'
 import { useHeroes, useTotalQuestTime } from '@/stores/heroStore'
 import { useAccountStore } from '@/stores/accountStore'
@@ -58,8 +58,8 @@ export default function HomeScreen() {
           >
             <HeroAvatar spriteKey={hero.sprite} />
             <View style={{ flex: 1 }}>
-              <HeroInfo name={hero.name} gold={hero.gold} />
-              <MiniGearRow equipment={hero.equipment} />
+              <HeroInfo name={hero.name} />
+              <MiniGearRow equipment={hero.equipment} gold={hero.gold} />
             </View>
           </HeroCard>
         ))}

@@ -22,7 +22,7 @@ export function HeroCard({
         styles.cardFrame,
         {
           borderColor: theme.colors.border,
-          backgroundColor: 'rgba(30, 41, 59, 0.9)'
+          backgroundColor: '#892c30'
         },
         pressed && styles.cardPressed
       ]}
