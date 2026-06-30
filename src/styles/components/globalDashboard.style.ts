@@ -19,7 +19,8 @@ export const styles = StyleSheet.create({
   titleText: {
   },
   cogButton: {
-    padding: 4,
+    paddingRight: 4,
+    paddingBottom: 8,
     justifyContent: 'center',
     alignItems: 'center'
   },

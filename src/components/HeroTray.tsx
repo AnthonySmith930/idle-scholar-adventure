@@ -5,6 +5,7 @@ import { useThemeStore } from '@/stores/themeStore'
 import { HeroAvatar } from './HeroAvatar'
 import { HeroStatCard } from './HeroStatCard'
 import { styles } from '@/styles/components/heroTray.style'
+import { InfoButton } from './InfoButton'
 
 interface HeroTrayProps {
   hero: Hero

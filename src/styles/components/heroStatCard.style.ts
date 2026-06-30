@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   statsCardContainer: { alignSelf: 'stretch' },
-  pointsPoolRow: { marginBottom: 12, alignItems: 'flex-start' },
+  pointsPoolRow: { flexDirection: 'row', marginBottom: 12, alignItems: 'flex-start' },
   pointsPoolText: {
     fontFamily: 'PressStart2P_400Regular',
     color: '#FFFFFF',

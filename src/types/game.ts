@@ -132,3 +132,11 @@ export interface ItemStatsJson extends CoreAttributes {
   effect_value?: number
 }
 // ======================
+
+// ======== Information ========
+
+export type InfoModalVariant =
+  | 'base_stats'
+  | 'equipment_stats'
+
+// ======================

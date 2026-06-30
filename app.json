@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "scheme": "idlescholar",
     "orientation": "portrait",
+
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
     "ios": {
@@ -28,7 +29,14 @@
       "expo-router",
       "expo-status-bar",
       "expo-font",
-      "expo-splash-screen"
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-bg.webp",
+          "resizeMode": "cover",
+          "backgroundColor": "#0F172A"
+        }
+      ]
     ]
   }
 }

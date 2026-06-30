@@ -1,10 +1,13 @@
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
-  backgroundImage: {
-    paddingHorizontal: 16,
+  rootContainer: {
     flex: 1,
-    backgroundColor: '#f6f1ca' 
+    backgroundColor: '#f6f1ca'
+  },
+  container: {
+    paddingHorizontal: 16,
+    flex: 1
   },
   scrollView: {
     flex: 1,

@@ -36,7 +36,7 @@ export const idleSchalorLightTheme: Theme = {
       heading: 'PressStart2P_400Regular',
       regular: 'System'
     },
-    sizes: { xs: 12, sm: 14, md: 16, lg: 18, xl: 24, xxl: 32, xxxl: 48 }
+    sizes: { xxs: 9, xs: 12, sm: 14, md: 16, lg: 18, xl: 24, xxl: 32, xxxl: 48 }
   },
   borders: {
     retroWidth: 4
@@ -78,7 +78,7 @@ export const idleSchalorDarkTheme: Theme = {
       heading: 'PressStart2P_400Regular',
       regular: 'System'
     },
-    sizes: { xs: 12, sm: 14, md: 16, lg: 18, xl: 24, xxl: 32, xxxl: 48 }
+    sizes: { xxs: 9, xs: 12, sm: 14, md: 16, lg: 18, xl: 24, xxl: 32, xxxl: 48 }
   },
   borders: {
     retroWidth: 4

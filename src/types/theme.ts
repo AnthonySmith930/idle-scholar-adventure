@@ -78,6 +78,8 @@ export interface Theme {
     }
     /** Font sizes */
     sizes: {
+      /** 9px - tiny text */
+      xxs: number
       /** 12px - tiny text */
       xs: number
       /** 14px - small text */

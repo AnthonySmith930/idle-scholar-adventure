@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { View, Text, Pressable } from 'react-native'
 import { Hero } from '@/types/game'
 import { styles } from '@/styles/components/heroStatCard.style'
+import { InfoButton } from './InfoButton'
 
 interface HeroStatCardProps {
   hero: Hero
@@ -16,10 +17,7 @@ interface HeroStatCardProps {
   ) => void
 }
 
-export function HeroStatCard({
-  hero,
-  onConfirmStats
-}: HeroStatCardProps) {
+export function HeroStatCard({ hero, onConfirmStats }: HeroStatCardProps) {
   const [pendingStats, setPendingStats] = useState({
     power: hero.power,
     fortitude: hero.fortitude,
@@ -82,6 +80,9 @@ export function HeroStatCard({
             {pendingPoints}
           </Text>
         </Text>
+        <View style={{ flex: 1, alignItems: 'flex-end' }}>
+          <InfoButton infoModalVariant="base_stats" />
+        </View>
       </View>
 
       {(['power', 'fortitude', 'vigor', 'luck'] as const).map((stat) => {

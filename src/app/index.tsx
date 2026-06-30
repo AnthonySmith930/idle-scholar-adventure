@@ -1,6 +1,7 @@
-import { ScrollView, View, ViewStyle } from 'react-native'
+import { ScrollView, View, ViewStyle, StyleSheet } from 'react-native'
 import { useRouter } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { Image } from 'expo-image'
 import { GlobalDashboard } from '@/components/GlobalDashboard'
 import { HeroCard } from '@/components/HeroCard'
 import { HeroAvatar } from '@/components/HeroAvatar'
@@ -35,7 +36,15 @@ export default function HomeScreen() {
   }
 
   return (
-    <SafeAreaView style={styles.backgroundImage}>
+    <View style={styles.rootContainer}>
+    <Image
+        source={require('~/assets/images/splash-bg.webp')}
+        contentFit="cover"
+        transition={200}
+        style={StyleSheet.absoluteFill}
+      />
+
+      <SafeAreaView style={styles.container}>
       <GlobalDashboard
         totalGold={globalGold}
         totalTimeSeconds={totalTimeSeconds}
@@ -69,5 +78,8 @@ export default function HomeScreen() {
         )}
       </ScrollView>
     </SafeAreaView>
+
+    </View>
+    
   )
 }
