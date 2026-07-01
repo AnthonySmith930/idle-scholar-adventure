@@ -9,6 +9,12 @@ interface EquipmentStatData {
 
 const EQUIPMENT_STAT_DIRECTORY: EquipmentStatData[] = [
   {
+    name: 'EQUIPMENT',
+    color: '#3B82F6', // Blue 500 / Blue 700
+    description:
+      'A hero can equip 4 items. An armor item, weapon item, accessory, and a consumable. The only items a hero has at any given time, is that which is equipped.'
+  },
+  {
     name: 'DAMAGE',
     color: '#F43F5E', // Vivid Rose / Attack Pink
     description:
